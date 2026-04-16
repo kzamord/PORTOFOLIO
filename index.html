@@ -405,7 +405,7 @@
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 16px;
       margin-top: 64px;
     }
@@ -697,7 +697,7 @@
       </div>
       <div class="hero-stats">
         <div>
-          <div class="hstat-num">7<span class="c">+</span></div>
+          <div class="hstat-num">6<span class="c">+</span></div>
           <div class="hstat-label" data-i18n="hero.stat1">Ans d'expérience</div>
         </div>
         <div>
@@ -741,7 +741,7 @@
           <div class="stat-label" data-i18n="about.stat3">TJM</div>
         </div>
         <div class="stat-tile">
-          <div class="stat-num">6<span class="c">+</span></div>
+          <div class="stat-num">4<span class="c">+</span></div>
           <div class="stat-label" data-i18n="about.stat4">Outils maîtrisés</div>
         </div>
       </div>
@@ -752,43 +752,59 @@
   <section id="skills">
     <div class="eyebrow reveal"><span class="eyebrow-n">02</span><span class="eyebrow-l"></span></div>
     <h2 class="s-title reveal">Mes <em data-i18n="skills.title.em">compétences</em></h2>
-    <p class="s-lead reveal" data-i18n="skills.lead">Du cadrage métier au déploiement, je couvre l'ensemble de la chaîne BI.</p>
+    <p class="s-lead reveal" data-i18n="skills.lead">De la collecte brute à la décision éclairée, je couvre toute la chaîne de la donnée.</p>
     <div class="skills-grid">
+
       <div class="sk-tile reveal">
-        <div class="sk-icon">📊</div>
-        <div class="sk-name" data-i18n="skills.s1.name">Data Visualisation</div>
-        <p class="sk-desc" data-i18n="skills.s1.desc">Dashboards métier clairs, interactifs et orientés décision, avec sécurité et gouvernance intégrées.</p>
-        <div class="pills">
-          <span class="pill">Power BI</span>
-          <span class="pill" data-i18n="skills.s1.tag1">DAX avancé</span>
-          <span class="pill">RLS</span>
-          <span class="pill">Report Builder</span>
-          <span class="pill">Tableau</span>
-        </div>
-      </div>
-      <div class="sk-tile reveal">
-        <div class="sk-icon">❄️</div>
-        <div class="sk-name" data-i18n="skills.s2.name">Data Engineering</div>
-        <p class="sk-desc" data-i18n="skills.s2.desc">Modélisation en étoile, optimisation SQL et gouvernance des pipelines de données.</p>
-        <div class="pills">
-          <span class="pill">Snowflake</span>
-          <span class="pill">dbt</span>
-          <span class="pill">SQL</span>
-          <span class="pill">Azure DevOps</span>
-          <span class="pill">ETL</span>
-        </div>
-      </div>
-      <div class="sk-tile reveal">
-        <div class="sk-icon">🐍</div>
-        <div class="sk-name" data-i18n="skills.s3.name">Automatisation</div>
-        <p class="sk-desc" data-i18n="skills.s3.desc">Scripts de traitement, automatisations et intégrations API pour les pipelines critiques.</p>
+        <div class="sk-icon">🔌</div>
+        <div class="sk-name" data-i18n="skills.s1.name">Data Collection</div>
+        <p class="sk-desc" data-i18n="skills.s1.desc">Collecte et ingestion de données depuis des sources variées — APIs, bases de données, fichiers bruts — avec automatisation des flux entrants.</p>
         <div class="pills">
           <span class="pill">Python</span>
-          <span class="pill">Pandas</span>
-          <span class="pill">Airflow</span>
           <span class="pill">API REST</span>
+          <span class="pill">Web Scraping</span>
+          <span class="pill">SQL</span>
         </div>
       </div>
+
+      <div class="sk-tile reveal">
+        <div class="sk-icon">🧹</div>
+        <div class="sk-name" data-i18n="skills.s2.name">Data Preparation</div>
+        <p class="sk-desc" data-i18n="skills.s2.desc">Nettoyage, transformation et structuration des données pour garantir leur fiabilité avant toute analyse.</p>
+        <div class="pills">
+          <span class="pill">SAS</span>
+          <span class="pill">SQL</span>
+          <span class="pill">Python</span>
+          <span class="pill">R</span>
+          <span class="pill">Pandas</span>
+        </div>
+      </div>
+
+      <div class="sk-tile reveal">
+        <div class="sk-icon">🔍</div>
+        <div class="sk-name" data-i18n="skills.s3.name">Data Analysis</div>
+        <p class="sk-desc" data-i18n="skills.s3.desc">Analyse statistique et exploration des données pour identifier des tendances actionnables et appuyer la prise de décision métier.</p>
+        <div class="pills">
+          <span class="pill">SAS</span>
+          <span class="pill">Python</span>
+          <span class="pill">R</span>
+          <span class="pill">Statistiques</span>
+        </div>
+      </div>
+
+      <div class="sk-tile reveal">
+        <div class="sk-icon">📊</div>
+        <div class="sk-name" data-i18n="skills.s4.name">Data Visualisation</div>
+        <p class="sk-desc" data-i18n="skills.s4.desc">Industrialisation des processus reporting et conception de dashboards clairs et stratégiques pour les équipes métier.</p>
+        <div class="pills">
+          <span class="pill">Power BI</span>
+          <span class="pill">DAX</span>
+          <span class="pill">RLS</span>
+          <span class="pill">Tableau</span>
+          <span class="pill">Report Builder</span>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -911,14 +927,15 @@
         'about.stat3':         'TJM',
         'about.stat4':         'Outils maîtrisés',
         'skills.title.em':     'compétences',
-        'skills.lead':         'Du cadrage métier au déploiement, je couvre l\'ensemble de la chaîne BI.',
-        'skills.s1.name':      'Data Visualisation',
-        'skills.s1.desc':      'Dashboards métier clairs, interactifs et orientés décision, avec sécurité et gouvernance intégrées.',
-        'skills.s1.tag1':      'DAX avancé',
-        'skills.s2.name':      'Data Engineering',
-        'skills.s2.desc':      'Modélisation en étoile, optimisation SQL et gouvernance des pipelines de données.',
-        'skills.s3.name':      'Automatisation',
-        'skills.s3.desc':      'Scripts de traitement, automatisations et intégrations API pour les pipelines critiques.',
+        'skills.lead':         'De la collecte brute à la décision éclairée, je couvre toute la chaîne de la donnée.',
+        'skills.s1.name':      'Data Collection',
+        'skills.s1.desc':      'Collecte et ingestion de données depuis des sources variées — APIs, bases de données, fichiers bruts — avec automatisation des flux entrants.',
+        'skills.s2.name':      'Data Preparation',
+        'skills.s2.desc':      'Nettoyage, transformation et structuration des données pour garantir leur fiabilité avant toute analyse.',
+        'skills.s3.name':      'Data Analysis',
+        'skills.s3.desc':      'Analyse statistique et exploration des données pour identifier des tendances actionnables et appuyer la prise de décision métier.',
+        'skills.s4.name':      'Data Visualisation',
+        'skills.s4.desc':      'Industrialisation des processus reporting et conception de dashboards clairs et stratégiques pour les équipes métier.',
         'projects.title.em':   'récents',
         'projects.lead':       'Des livrables concrets avec des résultats mesurables.',
         'projects.p1.type':    'Projet phare',
@@ -956,14 +973,15 @@
         'about.stat3':         'Daily rate',
         'about.stat4':         'Core tools mastered',
         'skills.title.em':     'skills',
-        'skills.lead':         'From business scoping to deployment, I cover the full BI chain.',
-        'skills.s1.name':      'Data Visualisation',
-        'skills.s1.desc':      'Clear, interactive, decision-driven business dashboards with built-in security and governance.',
-        'skills.s1.tag1':      'Advanced DAX',
-        'skills.s2.name':      'Data Engineering',
-        'skills.s2.desc':      'Star schema modelling, SQL optimisation and data pipeline governance.',
-        'skills.s3.name':      'Automation',
-        'skills.s3.desc':      'Processing scripts, automations and API integrations for critical pipelines.',
+        'skills.lead':         'From raw data collection to informed decisions, I cover the full data chain.',
+        'skills.s1.name':      'Data Collection',
+        'skills.s1.desc':      'Data collection and ingestion from various sources — APIs, databases, raw files — with automated inbound pipelines.',
+        'skills.s2.name':      'Data Preparation',
+        'skills.s2.desc':      'Cleaning, transforming and structuring data to ensure its reliability before any analysis.',
+        'skills.s3.name':      'Data Analysis',
+        'skills.s3.desc':      'Statistical analysis and data exploration to identify actionable trends and support business decision-making.',
+        'skills.s4.name':      'Data Visualisation',
+        'skills.s4.desc':      'Streamlining reporting processes and building clear, strategic dashboards for business teams.',
         'projects.title.em':   'projects',
         'projects.lead':       'Concrete deliverables with measurable results.',
         'projects.p1.type':    'Featured project',
