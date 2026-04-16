@@ -686,7 +686,7 @@
       </div>
       <h1 class="hero-title">
         Hello,<br>
-        je suis <em>Kevin<br>ZAMORD</em>
+        <span data-i18n="hero.title.line2">je suis</span> <em>Kevin<br>ZAMORD</em>
       </h1>
       <p class="hero-sub" data-i18n="hero.sub">
         Les entreprises m'appellent pour améliorer leurs prises de décisions avec l'aide de la data.
@@ -697,7 +697,7 @@
       </div>
       <div class="hero-stats">
         <div>
-          <div class="hstat-num">6<span class="c">+</span></div>
+          <div class="hstat-num">7<span class="c">+</span></div>
           <div class="hstat-label" data-i18n="hero.stat1">Ans d'expérience</div>
         </div>
         <div>
@@ -724,7 +724,7 @@
     <div class="about-grid">
       <div class="about-body reveal">
         <p data-i18n="about.p1">Data Analyst expérimenté, j'interviens dans les secteurs <strong>assurantiel, bancaire et sportif</strong> avec une approche résolument orientée métier.</p>
-        <p data-i18n="about.p2">Je mobilise mes compétences techniques — <strong>SAS, Python, SQL, Power BI</strong> — pour collecter et préparer la donnée, concevoir des indicateurs à forte valeur ajoutée et livrer des tableaux de bord qui aident concrètement les équipes à prendre de meilleures décisions.</p>
+        <p data-i18n="about.p2">Je mobilise mes compétences techniques — <strong>SAS, Python, SQL, Power BI, …</strong> — pour collecter et préparer la donnée, concevoir des indicateurs à forte valeur ajoutée et livrer des tableaux de bord qui aident concrètement les équipes à prendre de meilleures décisions.</p>
         <p data-i18n="about.p3">Mon fil rouge : transformer des données brutes en leviers d'action clairs, <strong>documentés et adoptés</strong> par les équipes métier.</p>
       </div>
       <div class="stats-grid reveal">
@@ -751,19 +751,16 @@
   <!-- SKILLS -->
   <section id="skills">
     <div class="eyebrow reveal"><span class="eyebrow-n">02</span><span class="eyebrow-l"></span></div>
-    <h2 class="s-title reveal">Mes <em data-i18n="skills.title.em">compétences</em></h2>
+    <h2 class="s-title reveal"><span data-i18n="skills.title.prefix">Mes</span> <em data-i18n="skills.title.em">compétences</em></h2>
     <p class="s-lead reveal" data-i18n="skills.lead">De la collecte brute à la décision éclairée, je couvre toute la chaîne de la donnée.</p>
     <div class="skills-grid">
 
       <div class="sk-tile reveal">
         <div class="sk-icon">🔌</div>
         <div class="sk-name" data-i18n="skills.s1.name">Data Collection</div>
-        <p class="sk-desc" data-i18n="skills.s1.desc">Collecte et ingestion de données depuis des sources variées — APIs, bases de données, fichiers bruts — avec automatisation des flux entrants.</p>
+        <p class="sk-desc" data-i18n="skills.s1.desc">Collecte et ingestion de données depuis des sources variées — APIs, bases de données, fichiers bruts.</p>
         <div class="pills">
           <span class="pill">Python</span>
-          <span class="pill">API REST</span>
-          <span class="pill">Web Scraping</span>
-          <span class="pill">SQL</span>
         </div>
       </div>
 
@@ -776,7 +773,7 @@
           <span class="pill">SQL</span>
           <span class="pill">Python</span>
           <span class="pill">R</span>
-          <span class="pill">Pandas</span>
+          <span class="pill">Dataiku</span>
         </div>
       </div>
 
@@ -788,7 +785,7 @@
           <span class="pill">SAS</span>
           <span class="pill">Python</span>
           <span class="pill">R</span>
-          <span class="pill">Statistiques</span>
+          <span class="pill">Dataiku</span>
         </div>
       </div>
 
@@ -799,9 +796,7 @@
         <div class="pills">
           <span class="pill">Power BI</span>
           <span class="pill">DAX</span>
-          <span class="pill">RLS</span>
           <span class="pill">Tableau</span>
-          <span class="pill">Report Builder</span>
         </div>
       </div>
 
@@ -912,6 +907,7 @@
         'nav.projects':        'Projets',
         'nav.contact':         'Contact',
         'hero.badge':          'Disponible pour missions freelance',
+        'hero.title.line2':    'je suis',
         'hero.sub':            'Les entreprises m\'appellent pour améliorer leurs prises de décisions avec l\'aide de la data.',
         'hero.cta1':           'Voir mes projets →',
         'hero.cta2':           'Me contacter',
@@ -920,16 +916,17 @@
         'hero.stat3':          'Secteurs<br>Assurance · Banque · Sport',
         'about.title.em':      'de moi',
         'about.p1':            'Data Analyst expérimenté, j\'interviens dans les secteurs <strong>assurantiel, bancaire et sportif</strong> avec une approche résolument orientée métier.',
-        'about.p2':            'Je mobilise mes compétences techniques — <strong>SAS, Python, SQL, Power BI</strong> — pour collecter et préparer la donnée, concevoir des indicateurs à forte valeur ajoutée et livrer des tableaux de bord qui aident concrètement les équipes à prendre de meilleures décisions.',
+        'about.p2':            'Je mobilise mes compétences techniques — <strong>SAS, Python, SQL, Power BI, …</strong> — pour collecter et préparer la donnée, concevoir des indicateurs à forte valeur ajoutée et livrer des tableaux de bord qui aident concrètement les équipes à prendre de meilleures décisions.',
         'about.p3':            'Mon fil rouge : transformer des données brutes en leviers d\'action clairs, <strong>documentés et adoptés</strong> par les équipes métier.',
         'about.stat1':         'Années d\'expérience',
         'about.stat2':         'Secteurs couverts',
         'about.stat3':         'TJM',
         'about.stat4':         'Outils maîtrisés',
+        'skills.title.prefix':  'Mes',
         'skills.title.em':     'compétences',
         'skills.lead':         'De la collecte brute à la décision éclairée, je couvre toute la chaîne de la donnée.',
         'skills.s1.name':      'Data Collection',
-        'skills.s1.desc':      'Collecte et ingestion de données depuis des sources variées — APIs, bases de données, fichiers bruts — avec automatisation des flux entrants.',
+        'skills.s1.desc':      'Collecte et ingestion de données depuis des sources variées — APIs, bases de données, fichiers bruts.',
         'skills.s2.name':      'Data Preparation',
         'skills.s2.desc':      'Nettoyage, transformation et structuration des données pour garantir leur fiabilité avant toute analyse.',
         'skills.s3.name':      'Data Analysis',
@@ -958,6 +955,7 @@
         'nav.projects':        'Projects',
         'nav.contact':         'Contact',
         'hero.badge':          'Available for freelance missions',
+        'hero.title.line2':    'I am',
         'hero.sub':            'Companies call me to improve their decision-making with the help of data.',
         'hero.cta1':           'See my projects →',
         'hero.cta2':           'Get in touch',
@@ -966,16 +964,17 @@
         'hero.stat3':          'Industries<br>Insurance · Banking · Sports',
         'about.title.em':      'me',
         'about.p1':            'Experienced Data Analyst, I work across the <strong>insurance, banking and sports</strong> sectors with a business-first approach.',
-        'about.p2':            'I leverage my technical skills — <strong>SAS, Python, SQL, Power BI</strong> — to collect and prepare data, design high-value indicators and deliver dashboards that genuinely help teams make better decisions.',
+        'about.p2':            'I leverage my technical skills — <strong>SAS, Python, SQL, Power BI, …</strong> — to collect and prepare data, design high-value indicators and deliver dashboards that genuinely help teams make better decisions.',
         'about.p3':            'My guiding principle: turning raw data into clear, actionable insights that are <strong>documented and embraced</strong> by business teams.',
         'about.stat1':         'Years of experience',
         'about.stat2':         'Industries covered',
         'about.stat3':         'Daily rate',
         'about.stat4':         'Core tools mastered',
+        'skills.title.prefix':  'My',
         'skills.title.em':     'skills',
         'skills.lead':         'From raw data collection to informed decisions, I cover the full data chain.',
         'skills.s1.name':      'Data Collection',
-        'skills.s1.desc':      'Data collection and ingestion from various sources — APIs, databases, raw files — with automated inbound pipelines.',
+        'skills.s1.desc':      'Data collection and ingestion from various sources — APIs, databases, raw files.',
         'skills.s2.name':      'Data Preparation',
         'skills.s2.desc':      'Cleaning, transforming and structuring data to ensure its reliability before any analysis.',
         'skills.s3.name':      'Data Analysis',
