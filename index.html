@@ -1433,10 +1433,13 @@
 
     function updateNav() {
       let current = '';
-      // Only activate a nav item if we've scrolled past the hero (first 80vh)
       if (window.scrollY > window.innerHeight * 0.5) {
         sections.forEach(s => {
-          if (window.scrollY >= s.offsetTop - 120) current = s.id;
+          const top = s.offsetTop - 120;
+          const bottom = top + s.offsetHeight;
+          if (window.scrollY >= top && window.scrollY < bottom) {
+            current = s.id;
+          }
         });
       }
       navLinks.forEach(a => {
