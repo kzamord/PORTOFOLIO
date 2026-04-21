@@ -914,6 +914,53 @@
 
     .proj-thumb-link { display: none; }
 
+    /* ── PROJECT TABS ──────────────────────────── */
+    .proj-tabs {
+      display: flex;
+      gap: 12px;
+      margin: 48px 0 40px;
+      flex-wrap: wrap;
+    }
+
+    .proj-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 28px;
+      border-radius: 10px;
+      border: 1.5px solid var(--border);
+      background: transparent;
+      color: var(--ink-mid);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .proj-tab .tab-icon { font-size: 18px; }
+
+    .proj-tab:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-bg);
+    }
+
+    .proj-tab.active {
+      background: var(--ink);
+      border-color: var(--ink);
+      color: var(--bg);
+    }
+
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+      animation: fadeUp 0.35s ease;
+    }
+
   </style>
 </head>
 <body>
@@ -1082,13 +1129,24 @@
     <h2 class="s-title reveal">Projets <em data-i18n="projects.title.em">récents</em></h2>
     <p class="s-lead reveal" data-i18n="projects.lead">Des livrables concrets avec des résultats mesurables.</p>
 
-    <!-- ── SPORT ───────────────────────────────── -->
-    <div class="sector-block reveal">
-      <div class="sector-header">
-        <span class="sector-icon">⚽</span>
-        <h3 class="sector-title" data-i18n="projects.sector.sport">Sport</h3>
-        <span class="sector-line"></span>
-      </div>
+    <!-- TABS NAV -->
+    <div class="proj-tabs reveal">
+      <button class="proj-tab active" onclick="showTab('sport')" data-i18n-tab="sport">
+        <span class="tab-icon">⚽</span>
+        <span data-i18n="projects.sector.sport">Sport</span>
+      </button>
+      <button class="proj-tab" onclick="showTab('insurance')" data-i18n-tab="insurance">
+        <span class="tab-icon">🛡️</span>
+        <span data-i18n="projects.sector.insurance">Assurance</span>
+      </button>
+      <button class="proj-tab" onclick="showTab('finance')" data-i18n-tab="finance">
+        <span class="tab-icon">🏦</span>
+        <span data-i18n="projects.sector.finance">Banque & Finance</span>
+      </button>
+    </div>
+
+    <!-- TAB PANELS -->
+    <div class="tab-panel active" id="tab-sport">
       <div class="proj-grid">
 
         <div class="pr-card proj-has-img">
@@ -1133,13 +1191,7 @@
       </div>
     </div>
 
-    <!-- ── ASSURANCE ────────────────────────────── -->
-    <div class="sector-block reveal">
-      <div class="sector-header">
-        <span class="sector-icon">🛡️</span>
-        <h3 class="sector-title" data-i18n="projects.sector.insurance">Assurance</h3>
-        <span class="sector-line"></span>
-      </div>
+    <div class="tab-panel" id="tab-insurance">
       <div class="proj-grid">
 
         <!-- Pacifica - TDB Sinistres -->
@@ -1152,8 +1204,9 @@
             <h3 class="pr-name" data-i18n="projects.p_pacifica.name">Refonte du TDB Direction des Sinistres</h3>
             <p class="pr-body" data-i18n="projects.p_pacifica.body">Refonte complète du tableau de bord de la Direction des Sinistres. Ce projet a permis de répondre aux besoins métiers, d'intégrer rapidement les évolutions projet, d'offrir une meilleure flexibilité grâce à des filtres avancés et d'accélérer la production du reporting.</p>
             <div class="pr-stack">
-              <span class="chip">Excel VBA</span>
-              <span class="chip">SAS</span>
+              <span class="chip">Power BI</span>
+              <span class="chip">DAX</span>
+              <span class="chip">SQL</span>
             </div>
           </div>
         </div>
@@ -1170,10 +1223,8 @@
             <div class="pr-stack">
               <span class="chip">SAS</span>
               <span class="chip">SQL</span>
-              <span class="chip">Power BI</span>
-              <span class="chip">DAX</span>
+              <span class="chip">Python</span>
               <span class="chip">Automatisation</span>
-              <span class="chip">Excel VBA</span>
             </div>
           </div>
         </div>
@@ -1181,13 +1232,7 @@
       </div>
     </div>
 
-    <!-- ── BANQUE / FINANCE ─────────────────────── -->
-    <div class="sector-block reveal">
-      <div class="sector-header">
-        <span class="sector-icon">🏦</span>
-        <h3 class="sector-title" data-i18n="projects.sector.finance">Banque & Finance</h3>
-        <span class="sector-line"></span>
-      </div>
+    <div class="tab-panel" id="tab-finance">
       <div class="proj-grid">
         <div class="pr-card pr-placeholder">
           <div class="placeholder-inner">
@@ -1399,7 +1444,16 @@
     }
   </script>
 
-  <!-- LIGHTBOX -->
+  <script>
+    function showTab(tab) {
+      // Hide all panels
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.proj-tab').forEach(b => b.classList.remove('active'));
+      // Show selected
+      document.getElementById('tab-' + tab).classList.add('active');
+      document.querySelector('[data-i18n-tab="' + tab + '"]').classList.add('active');
+    }
+  </script>
   <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
     <div class="lightbox-img-wrap" id="lightbox-img-wrap">
       <img id="lightbox-img" src="" alt="" />
