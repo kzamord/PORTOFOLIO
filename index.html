@@ -1133,13 +1133,13 @@
 
     <!-- TABS NAV -->
     <div class="proj-tabs reveal">
-      <button class="proj-tab active" onclick="showTab('insurance')" data-i18n-tab="sport">
-        <span class="tab-icon">⚽</span>
-        <span data-i18n="projects.sector.sport">Sport</span>
-      </button>
       <button class="proj-tab active" onclick="showTab('insurance')" data-i18n-tab="insurance">
         <span class="tab-icon">🛡️</span>
         <span data-i18n="projects.sector.insurance">Assurance</span>
+      </button>
+      <button class="proj-tab" onclick="showTab('sport')" data-i18n-tab="sport">
+        <span class="tab-icon">⚽</span>
+        <span data-i18n="projects.sector.sport">Sport</span>
       </button>
     </div>
 
@@ -1433,11 +1433,14 @@
 
     function updateNav() {
       let current = '';
-      sections.forEach(s => {
-        if (window.scrollY >= s.offsetTop - 100) current = s.id;
-      });
+      // Only activate a nav item if we've scrolled past the hero (first 80vh)
+      if (window.scrollY > window.innerHeight * 0.5) {
+        sections.forEach(s => {
+          if (window.scrollY >= s.offsetTop - 120) current = s.id;
+        });
+      }
       navLinks.forEach(a => {
-        a.classList.toggle('nav-active', a.getAttribute('href') === '#' + current);
+        a.classList.toggle('nav-active', current !== '' && a.getAttribute('href') === '#' + current);
       });
     }
 
