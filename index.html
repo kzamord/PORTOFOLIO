@@ -961,6 +961,12 @@
       animation: fadeUp 0.35s ease;
     }
 
+    .nav-links a.nav-active {
+      background: var(--ink);
+      color: var(--bg) !important;
+      border-radius: 8px;
+    }
+
   </style>
 </head>
 <body>
@@ -1006,10 +1012,6 @@
           <div class="hstat-num">7</div>
           <div class="hstat-label" data-i18n="hero.stat2">Clients accompagnés</div>
         </div>
-        <div>
-          <div class="hstat-num">3</div>
-          <div class="hstat-label" data-i18n="hero.stat3">Secteurs<br>Assurance · Banque · Sport</div>
-        </div>
       </div>
     </div>
     <div class="hero-right">
@@ -1045,7 +1047,7 @@
       <div class="about-body reveal">
         <p data-i18n="about.p1">Data Analyst expérimenté, j'interviens dans les secteurs <strong>assurantiel, bancaire et sportif</strong> avec une approche résolument orientée métier.</p>
         <p data-i18n="about.p2">Je mobilise mes compétences techniques — <strong>SAS, Python, SQL, Power BI, …</strong> — pour collecter et préparer la donnée, concevoir des indicateurs à forte valeur ajoutée et livrer des tableaux de bord qui aident concrètement les équipes à prendre de meilleures décisions.</p>
-        <p data-i18n="about.p3">Mon fil rouge : transformer des données brutes en leviers d'action clairs, <strong>documentés et adoptés</strong> par les équipes métier.</p>
+        
       </div>
       <div class="stats-grid reveal">
         <div class="stat-tile">
@@ -1131,18 +1133,18 @@
 
     <!-- TABS NAV -->
     <div class="proj-tabs reveal">
-      <button class="proj-tab active" onclick="showTab('sport')" data-i18n-tab="sport">
+      <button class="proj-tab active" onclick="showTab('insurance')" data-i18n-tab="sport">
         <span class="tab-icon">⚽</span>
         <span data-i18n="projects.sector.sport">Sport</span>
       </button>
-      <button class="proj-tab" onclick="showTab('insurance')" data-i18n-tab="insurance">
+      <button class="proj-tab active" onclick="showTab('insurance')" data-i18n-tab="insurance">
         <span class="tab-icon">🛡️</span>
         <span data-i18n="projects.sector.insurance">Assurance</span>
       </button>
     </div>
 
     <!-- TAB PANELS -->
-    <div class="tab-panel active" id="tab-sport">
+    <div class="tab-panel" id="tab-sport">
       <div class="proj-grid">
 
         <div class="pr-card proj-has-img">
@@ -1155,7 +1157,7 @@
           <div class="proj-content">
             <div class="pr-type"><span class="pr-dot"></span><span data-i18n="projects.p_xsp.type">Machine Learning · Football</span></div>
             <h3 class="pr-name" data-i18n="projects.p_xsp.name">Expected Set Piece (XSP)</h3>
-            <p class="pr-body" data-i18n="projects.p_xsp.body">Modèle de machine learning permettant de déterminer la probabilité qu'un coup franc direct se convertisse en but. Basé sur les données StatBomb, le modèle prend en compte la position, la distance, la configuration défensive et le nombre d'attaquants pour générer un score XSP actionnable.</p>
+            <p class="pr-body" data-i18n="projects.p_xsp.body">Modèle de machine learning permettant de déterminer la probabilité qu'un coup franc direct se convertisse en but. Basé sur les données StatBomb, le modèle prend en compte la position, la distance, la configuration défensive et le nombre d'attaquants pour générer un score XSP actionnable. Ce projet permet au staff technique d'améliorer les patterns sur coups francs et aux football analysts d'intégrer cette nouvelle métrique dans leur analyse.</p>
             <div class="pr-stack">
               <span class="chip">Python</span>
               <span class="chip">Machine Learning</span>
@@ -1187,7 +1189,7 @@
       </div>
     </div>
 
-    <div class="tab-panel" id="tab-insurance">
+    <div class="tab-panel active" id="tab-insurance">
       <div class="proj-grid">
 
         <!-- Pacifica - TDB Sinistres -->
@@ -1255,10 +1257,6 @@
         <a href="https://www.linkedin.com/in/kevin-zamord-710160139/" target="_blank" class="btn btn-outline">LinkedIn →</a>
       </div>
       <div class="ct-row reveal">
-        <a href="https://github.com/kzamord" target="_blank" class="ct-link">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
-          GitHub
-        </a>
       </div>
     </div>
   </section>
@@ -1294,12 +1292,12 @@
         'hero.cta2':           'Me contacter',
         'hero.stat1':          'Ans d\'expérience',
         'hero.stat2':          'Clients accompagnés',
-        'hero.stat3':          'Secteurs<br>Assurance · Banque · Sport',
+
         'about.title.prefix':  'À propos',
         'about.title.em':      'de moi',
         'about.p1':            'Data Analyst expérimenté, j\'interviens dans les secteurs <strong>assurantiel, bancaire et sportif</strong> avec une approche résolument orientée métier.',
         'about.p2':            'Je mobilise mes compétences techniques — <strong>SAS, Python, SQL, Power BI, …</strong> — pour collecter et préparer la donnée, concevoir des indicateurs à forte valeur ajoutée et livrer des tableaux de bord qui aident concrètement les équipes à prendre de meilleures décisions.',
-        'about.p3':            'Mon fil rouge : transformer des données brutes en leviers d\'action clairs, <strong>documentés et adoptés</strong> par les équipes métier.',
+        
         'about.stat1':         'Années d\'expérience',
         'about.stat2':         'Secteurs couverts',
         'about.stat3':         'TJM',
@@ -1350,12 +1348,12 @@
         'hero.cta2':           'Get in touch',
         'hero.stat1':          'Years of experience',
         'hero.stat2':          'Clients served',
-        'hero.stat3':          'Industries<br>Insurance · Banking · Sports',
+
         'about.title.prefix':  'About',
         'about.title.em':      'me',
         'about.p1':            'Experienced Data Analyst, I work across the <strong>insurance, banking and sports</strong> sectors with a business-first approach.',
         'about.p2':            'I leverage my technical skills — <strong>SAS, Python, SQL, Power BI, …</strong> — to collect and prepare data, design high-value indicators and deliver dashboards that genuinely help teams make better decisions.',
-        'about.p3':            'My guiding principle: turning raw data into clear, actionable insights that are <strong>documented and embraced</strong> by business teams.',
+        
         'about.stat1':         'Years of experience',
         'about.stat2':         'Industries covered',
         'about.stat3':         'Daily rate',
@@ -1380,7 +1378,7 @@
         'projects.coming':          'Coming soon',
         'projects.p_xsp.type':      'Machine Learning · Football',
         'projects.p_xsp.name':      'Expected Set Piece (XSP)',
-        'projects.p_xsp.body':      'A machine learning model designed to predict the probability of a direct free kick resulting in a goal. Built on StatBomb data, the model factors in position, distance, defensive setup and number of attackers to generate an actionable XSP score.',
+        'projects.p_xsp.body':      'A machine learning model designed to predict the probability of a direct free kick resulting in a goal. Built on StatBomb data, the model factors in position, distance, defensive setup and number of attackers to generate an actionable XSP score. This project helps technical staff improve free kick patterns and gives football analysts a new metric to integrate into their decision-making.',
         'projects.p_penalty.type':  'Computer Vision · Football',
         'projects.p_penalty.name':  'Penalty Kick Prediction',
         'projects.p_penalty.body':  'A computer vision project analysing penalty kicks. The model detects players by their body shape and jersey colour, then extracts biomechanical data (knee angle) to predict the direction of the shot before the kick is taken.',
@@ -1426,6 +1424,25 @@
       document.body.style.opacity = '0.85';
       setTimeout(() => { document.body.style.opacity = '1'; }, 150);
     }
+  </script>
+
+  <script>
+    // ── SCROLL SPY — active nav on section ────────
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+    function updateNav() {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.classList.toggle('nav-active', a.getAttribute('href') === '#' + current);
+      });
+    }
+
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
   </script>
 
   <script>
