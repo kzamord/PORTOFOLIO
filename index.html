@@ -961,6 +961,17 @@
       animation: fadeUp 0.35s ease;
     }
 
+    .btn-cv {
+      background: transparent;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+      gap: 8px;
+    }
+    .btn-cv:hover {
+      background: var(--accent-bg);
+      border-color: var(--accent);
+    }
+
     .nav-links a.nav-active {
       background: var(--ink);
       color: var(--bg) !important;
@@ -1002,6 +1013,10 @@
       <div class="hero-actions">
         <a href="#projects" class="btn btn-dark" data-i18n="hero.cta1">Voir mes projets →</a>
         <a href="#contact" class="btn btn-outline" data-i18n="hero.cta2">Me contacter</a>
+        <a href="CV_KZ.pdf" download id="cv-btn" class="btn btn-cv" data-i18n="hero.cv">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Télécharger mon CV
+        </a>
       </div>
       <div class="hero-stats">
         <div>
@@ -1285,7 +1300,7 @@
         'nav.skills':          'Compétences',
         'nav.projects':        'Projets',
         'nav.contact':         'Contact',
-        'hero.badge':          'Disponible pour missions freelance',
+        'hero.cv':             'Télécharger mon CV',
         'hero.title.line2':    'je suis',
         'hero.sub':            'Les entreprises m\'appellent pour améliorer leurs prises de décisions avec l\'aide de la data.',
         'hero.cta1':           'Voir mes projets →',
@@ -1341,7 +1356,7 @@
         'nav.skills':          'Skills',
         'nav.projects':        'Projects',
         'nav.contact':         'Contact',
-        'hero.badge':          'Available for freelance missions',
+        'hero.cv':             'Download my Resume',
         'hero.title.line2':    'I am',
         'hero.sub':            'Companies call me to improve their decision-making with the help of data.',
         'hero.cta1':           'See my projects →',
@@ -1418,6 +1433,12 @@
       // Update active button
       document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+
+      // Switch CV file based on language
+      const cvBtn = document.getElementById('cv-btn');
+      if (cvBtn) {
+        cvBtn.href = lang === 'fr' ? 'CV_KZ.pdf' : 'Resume_KZ.pdf';
+      }
 
       // Subtle fade transition
       document.body.style.transition = 'opacity 0.15s ease';
