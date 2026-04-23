@@ -69,8 +69,12 @@
     .nav-links a:hover { background: var(--bg3); color: var(--ink); }
 
     .nav-cta {
-      background: var(--ink) !important;
-      color: var(--bg) !important;
+      background: transparent !important;
+      color: var(--ink-mid) !important;
+    }
+    .nav-cta:hover {
+      background: var(--bg3) !important;
+      color: var(--ink) !important;
     }
 
     /* LANG SWITCHER */
@@ -155,12 +159,23 @@
       font-size: clamp(52px, 5.5vw, 88px);
       line-height: 1.0;
       letter-spacing: -2px;
-      margin-bottom: 24px;
+      margin-bottom: 8px;
       opacity: 0;
       animation: fadeUp 0.7s ease 0.25s forwards;
     }
 
-    .hero-title em { font-style: italic; color: var(--accent); }
+    .hero-title em { font-style: normal; color: var(--accent); }
+
+    .hero-role {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(52px, 5.5vw, 88px);
+      letter-spacing: -2px;
+      line-height: 1.0;
+      color: var(--ink);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fadeUp 0.7s ease 0.35s forwards;
+    }
 
     .hero-sub {
       font-size: 18px;
@@ -1005,15 +1020,16 @@
       </div>
       <h1 class="hero-title">
         Hello,<br>
-        <span data-i18n="hero.title.line2">je suis</span> <em>Kevin<br>ZAMORD</em>
+        <em>Kevin ZAMORD</em>
       </h1>
+      <p class="hero-role">Data Analyst</p>
       <p class="hero-sub" data-i18n="hero.sub">
         Les entreprises m'appellent pour améliorer leurs prises de décisions avec l'aide de la data.
       </p>
       <div class="hero-actions">
         <a href="#projects" class="btn btn-dark" data-i18n="hero.cta1">Voir mes projets →</a>
         <a href="#contact" class="btn btn-outline" data-i18n="hero.cta2">Me contacter</a>
-        <a href="CV_KZ.pdf" download id="cv-btn" class="btn btn-cv" data-i18n="hero.cv">
+        <a href="CV/CV_KZ.pdf" download id="cv-btn" class="btn btn-cv" data-i18n="hero.cv">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Télécharger mon CV
         </a>
@@ -1045,14 +1061,12 @@
           <div class="logo-item"><img src="images/logo_MMH.svg" alt="MMH" /></div>
           <div class="logo-item"><img src="images/logo_StatTheGame.png" alt="Stat The Game" /></div>
           <div class="logo-item"><img src="images/logo_ufirst.png" alt="Ufirst Advisory" /></div>
-          <div class="logo-item"><img src="images/logo_finegan.png" alt="Finegan" /></div>
           <div class="logo-item"><img src="images/logo_allianz.svg" alt="Allianz" /></div>
           <div class="logo-item"><img src="images/logo_bnp.svg" alt="BNP Paribas" /></div>
           <div class="logo-item"><img src="images/logo_pacifica.svg" alt="CA Assurances" /></div>
           <div class="logo-item"><img src="images/logo_MMH.svg" alt="MMH" /></div>
           <div class="logo-item"><img src="images/logo_StatTheGame.png" alt="Stat The Game" /></div>
           <div class="logo-item"><img src="images/logo_ufirst.png" alt="Ufirst Advisory" /></div>
-          <div class="logo-item"><img src="images/logo_finegan.png" alt="Finegan" /></div>
     </div>
   </div>
 
@@ -1303,7 +1317,8 @@
         'nav.projects':        'Projets',
         'nav.contact':         'Contact',
         'hero.cv':             'Télécharger mon CV',
-        'hero.title.line2':    'je suis',
+        'hero.badge':          'Disponible pour missions freelance',
+
         'hero.sub':            'Les entreprises m\'appellent pour améliorer leurs prises de décisions avec l\'aide de la data.',
         'hero.cta1':           'Voir mes projets →',
         'hero.cta2':           'Me contacter',
@@ -1361,7 +1376,8 @@
         'nav.projects':        'Projects',
         'nav.contact':         'Contact',
         'hero.cv':             'Download my Resume',
-        'hero.title.line2':    'I am',
+        'hero.badge':          'Available for freelance missions',
+
         'hero.sub':            'Companies call me to improve their decision-making with the help of data.',
         'hero.cta1':           'See my projects →',
         'hero.cta2':           'Get in touch',
@@ -1443,7 +1459,7 @@
       // Switch CV file based on language
       const cvBtn = document.getElementById('cv-btn');
       if (cvBtn) {
-        cvBtn.href = lang === 'fr' ? 'CV_KZ.pdf' : 'Resume_KZ.pdf';
+        cvBtn.href = lang === 'fr' ? 'CV/CV_KZ.pdf' : 'CV/Resume_KZ.pdf';
       }
 
       // Subtle fade transition
