@@ -1177,18 +1177,14 @@
 
     <!-- TABS NAV -->
     <div class="proj-tabs reveal">
-      <button class="proj-tab active" onclick="showTab('insurance')" data-i18n-tab="insurance">
-        <span class="tab-icon">🛡️</span>
-        <span data-i18n="projects.sector.insurance">Assurance</span>
-      </button>
-      <button class="proj-tab" onclick="showTab('sport')" data-i18n-tab="sport">
+      <button class="proj-tab active" onclick="showTab('sport')" data-i18n-tab="sport">
         <span class="tab-icon">⚽</span>
-        <span data-i18n="projects.sector.sport">Sport</span>
+        <span data-i18n="projects.sector.sport">Football</span>
       </button>
     </div>
 
     <!-- TAB PANELS -->
-    <div class="tab-panel" id="tab-sport">
+    <div class="tab-panel active" id="tab-sport">
       <div class="proj-grid">
 
         <div class="pr-card proj-has-img">
@@ -1197,77 +1193,6 @@
             <a href="https://xsp-optimiser.onrender.com/" target="_blank" class="proj-thumb-link" data-i18n="projects.see">
               Voir le projet →
             </a>
-          </div>
-          <div class="proj-content">
-            <div class="pr-type"><span class="pr-dot"></span><span data-i18n="projects.p_xsp.type">Machine Learning · Football</span></div>
-            <h3 class="pr-name" data-i18n="projects.p_xsp.name">Expected Set Piece (XSP)</h3>
-            <p class="pr-body" data-i18n="projects.p_xsp.body">Modèle de machine learning permettant de déterminer la probabilité qu'un coup franc direct se convertisse en but. Basé sur les données StatBomb, le modèle prend en compte la position, la distance, la configuration défensive et le nombre d'attaquants pour générer un score XSP actionnable. Ce projet permet au staff technique d'améliorer les patterns sur coups francs et aux football analysts d'intégrer cette nouvelle métrique dans leur analyse.</p>
-            <div class="pr-stack">
-              <span class="chip">Python</span>
-              <span class="chip">Machine Learning</span>
-              <span class="chip">StatBomb</span>
-              <span class="chip">Streamlit</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Penalty Kick Prediction -->
-        <div class="pr-card proj-has-img">
-          <div class="proj-thumb" onclick="openLightbox('data-penalty', 'https://github.com/kzamord/penalty_kick_prediction', 'Voir sur GitHub →')">
-            <img id="data-penalty" src="images/Project_penalty_kick.jpg" alt="Penalty Kick Prediction" />
-            <div class="proj-thumb-link"></div>
-          </div>
-          <div class="proj-content">
-            <div class="pr-type"><span class="pr-dot"></span><span data-i18n="projects.p_penalty.type">Computer Vision · Football</span></div>
-            <h3 class="pr-name" data-i18n="projects.p_penalty.name">Penalty Kick Prediction</h3>
-            <p class="pr-body" data-i18n="projects.p_penalty.body">Projet de computer vision analysant les tirs au but. Le modèle détecte les joueurs par leur forme et leur couleur de maillot, puis extrait des données biomécaniques (angle du genou) permettant de prédire la direction du tir avant que la frappe ait lieu.</p>
-            <div class="pr-stack">
-              <span class="chip">Python</span>
-              <span class="chip">Computer Vision</span>
-              <span class="chip">OpenCV</span>
-              <span class="chip">Deep Learning</span>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="tab-panel active" id="tab-insurance">
-      <div class="proj-grid">
-
-        <!-- Pacifica - TDB Sinistres -->
-        <div class="pr-card proj-has-img">
-          <div class="proj-thumb" onclick="openLightbox('data-pacifica', null, null)">
-            <img id="data-pacifica" src="images/Project_TDB_sinistre.png" alt="Tableau de bord Sinistres Pacifica" />
-          </div>
-          <div class="proj-content">
-            <div class="pr-type"><span class="pr-dot"></span><span data-i18n="projects.p_pacifica.type">Power BI · Assurance · Pacifica</span></div>
-            <h3 class="pr-name" data-i18n="projects.p_pacifica.name">Refonte du TDB Direction des Sinistres</h3>
-            <p class="pr-body" data-i18n="projects.p_pacifica.body">Refonte complète du tableau de bord de la Direction des Sinistres. Ce projet a permis de répondre aux besoins métiers, d'intégrer rapidement les évolutions projet, d'offrir une meilleure flexibilité grâce à des filtres avancés et d'accélérer la production du reporting.</p>
-            <div class="pr-stack">
-              <span class="chip">Power BI</span>
-              <span class="chip">DAX</span>
-              <span class="chip">SQL</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Malakoff Humanis - Ciblage Atypies -->
-        <div class="pr-card proj-has-img">
-          <div class="proj-thumb" onclick="openLightbox('data-atypies', null, null)">
-            <img id="data-atypies" src="images/Project_ciblage_atypies.png" alt="Ciblage des atypies Malakoff Humanis" />
-          </div>
-          <div class="proj-content">
-            <div class="pr-type"><span class="pr-dot"></span><span data-i18n="projects.p_atypies.type">Data · Assurance · Malakoff Humanis</span></div>
-            <h3 class="pr-name" data-i18n="projects.p_atypies.name">Ciblage des Atypies — Détection de Fraude</h3>
-            <p class="pr-body" data-i18n="projects.p_atypies.body">Solution permettant aux équipes métier de détecter plus rapidement et efficacement des atypies. En un clic, le processus compile plusieurs sources, nettoie les données, applique les critères de contrôle et restitue une synthèse des dossiers suspects avec les montants associés.</p>
-            <div class="pr-stack">
-              <span class="chip">SAS</span>
-              <span class="chip">SQL</span>
-              <span class="chip">Python</span>
-              <span class="chip">Automatisation</span>
-            </div>
           </div>
         </div>
 
@@ -1361,8 +1286,8 @@
         'projects.title.prefix':   'Projets',
         'projects.title.em':   'récents',
         'projects.lead':       'Des livrables concrets avec des résultats mesurables.',
-        'projects.sector.sport':    'Sport',
-        'projects.sector.insurance':'Assurance',
+        'projects.sector.sport':    'Football',
+        
         
         'projects.see':             'Voir le projet →',
         'projects.coming':          'Projet à venir',
@@ -1371,13 +1296,7 @@
         'projects.p_xsp.body':      'Modèle de machine learning permettant de déterminer la probabilité qu\'un coup franc direct se convertisse en but. Basé sur les données StatBomb, le modèle prend en compte la position, la distance, la configuration défensive et le nombre d\'attaquants pour générer un score XSP actionnable.',
         'projects.p_penalty.type':  'Computer Vision · Football',
         'projects.p_penalty.name':  'Penalty Kick Prediction',
-        'projects.p_penalty.body':  'Projet de computer vision analysant les tirs au but. Le modèle détecte les joueurs par leur forme et leur couleur de maillot, puis extrait des données biomécaniques (angle du genou) permettant de prédire la direction du tir avant que la frappe ait lieu.',
-        'projects.p_pacifica.type': 'Power BI · Assurance · Pacifica',
-        'projects.p_pacifica.name': 'Refonte du TDB Direction des Sinistres',
-        'projects.p_pacifica.body': 'Refonte complète du tableau de bord de la Direction des Sinistres. Ce projet a permis de répondre aux besoins métiers, d\'intégrer rapidement les évolutions projet, d\'offrir une meilleure flexibilité grâce à des filtres avancés et d\'accélérer la production du reporting.',
-        'projects.p_atypies.type':  'Data · Assurance · Malakoff Humanis',
-        'projects.p_atypies.name':  'Ciblage des Atypies — Détection de Fraude',
-        'projects.p_atypies.body':  'Solution permettant aux équipes métier de détecter plus rapidement et efficacement des atypies. En un clic, le processus compile plusieurs sources, nettoie les données, applique les critères de contrôle et restitue une synthèse des dossiers suspects avec les montants associés.',
+        'projects.p_penalty.body':  'Projet de computer vision analysant les tirs au but. Le modèle détecte les joueurs par leur forme et leur couleur de maillot, puis extrait des données biomécaniques (angle du genou) permettant de prédire la direction du tir avant que la frappe ait lieu.', d\'intégrer rapidement les évolutions projet, d\'offrir une meilleure flexibilité grâce à des filtres avancés et d\'accélérer la production du reporting.', le processus compile plusieurs sources, nettoie les données, applique les critères de contrôle et restitue une synthèse des dossiers suspects avec les montants associés.',
         'contact.title.prefix':    'Travaillons',
         'contact.title.em':    'ensemble.',
         'contact.sub':         'Vous avez un projet data, un besoin BI ou une mission freelance ?<br>Je suis disponible et réponds sous 24h.',
@@ -1420,8 +1339,8 @@
         'projects.title.prefix':   'My',
         'projects.title.em':   'Projects',
         'projects.lead':       'Concrete deliverables with measurable results.',
-        'projects.sector.sport':    'Sports',
-        'projects.sector.insurance':'Insurance',
+        'projects.sector.sport':    'Football',
+        
         
         'projects.see':             'View project →',
         'projects.coming':          'Coming soon',
@@ -1430,13 +1349,7 @@
         'projects.p_xsp.body':      'A machine learning model designed to predict the probability of a direct free kick resulting in a goal. Built on StatBomb data, the model factors in position, distance, defensive setup and number of attackers to generate an actionable XSP score. This project helps technical staff improve free kick patterns and gives football analysts a new metric to integrate into their decision-making.',
         'projects.p_penalty.type':  'Computer Vision · Football',
         'projects.p_penalty.name':  'Penalty Kick Prediction',
-        'projects.p_penalty.body':  'A computer vision project analysing penalty kicks. The model detects players by their body shape and jersey colour, then extracts biomechanical data (knee angle) to predict the direction of the shot before the kick is taken.',
-        'projects.p_pacifica.type': 'Power BI · Insurance · Pacifica',
-        'projects.p_pacifica.name': 'Claims Dashboard Overhaul',
-        'projects.p_pacifica.body': 'Full redesign of the Claims Directorate dashboard. The project addressed business needs, enabled rapid integration of project updates, improved flexibility through advanced filters and significantly accelerated reporting delivery.',
-        'projects.p_atypies.type':  'Data · Insurance · Malakoff Humanis',
-        'projects.p_atypies.name':  'Atypical Claims Targeting — Fraud Detection',
-        'projects.p_atypies.body':  'A solution enabling business teams to detect atypical claims faster and more effectively. With a single click, the process compiles multiple data sources, cleans data, applies control criteria and delivers a summary of suspicious files with associated amounts.',
+        'projects.p_penalty.body':  'A computer vision project analysing penalty kicks. The model detects players by their body shape and jersey colour, then extracts biomechanical data (knee angle) to predict the direction of the shot before the kick is taken.', enabled rapid integration of project updates, improved flexibility through advanced filters and significantly accelerated reporting delivery.', the process compiles multiple data sources, cleans data, applies control criteria and delivers a summary of suspicious files with associated amounts.',
         'contact.title.prefix':    "Let's work",
         'contact.title.em':    'together.',
         'contact.sub':         'Got a data project, a BI need or a freelance mission?<br>I\'m available and reply within 24h.',
