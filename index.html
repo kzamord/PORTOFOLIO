@@ -1175,7 +1175,6 @@
     <h2 class="s-title reveal"><span data-i18n="projects.title.prefix">Projets</span> <em data-i18n="projects.title.em">récents</em></h2>
     <p class="s-lead reveal" data-i18n="projects.lead">Des livrables concrets avec des résultats mesurables.</p>
 
-    <!-- TABS NAV -->
     <div class="proj-tabs reveal">
       <button class="proj-tab active" onclick="showTab('sport')" data-i18n-tab="sport">
         <span class="tab-icon">⚽</span>
@@ -1183,27 +1182,38 @@
       </button>
     </div>
 
-    <!-- TAB PANELS -->
     <div class="tab-panel active" id="tab-sport">
       <div class="proj-grid">
-
         <div class="pr-card proj-has-img">
           <div class="proj-thumb" onclick="openLightbox('data-xsp', 'https://xsp-optimiser.onrender.com/', 'Voir l\'application →')">
             <img id="data-xsp" src="images/Project_xsp.jpg" alt="XSP Optimiser dashboard" />
-            <a href="https://xsp-optimiser.onrender.com/" target="_blank" class="proj-thumb-link" data-i18n="projects.see">
-              Voir le projet →
-            </a>
+          </div>
+          <div class="proj-content">
+            <div class="pr-type"><span class="pr-dot"></span><span data-i18n="projects.p_xsp.type">Machine Learning · Football</span></div>
+            <h3 class="pr-name" data-i18n="projects.p_xsp.name">Expected Set Piece (XSP)</h3>
+            <p class="pr-body" data-i18n="projects.p_xsp.body">Modèle de machine learning permettant de déterminer la probabilité qu'un coup franc direct se convertisse en but. Basé sur les données StatBomb, le modèle prend en compte la position, la distance, la configuration défensive et le nombre d'attaquants pour générer un score XSP actionnable. Ce projet permet au staff technique d'améliorer les patterns sur coups francs et aux football analysts d'intégrer cette nouvelle métrique dans leur analyse.</p>
+            <div class="pr-stack">
+              <span class="chip">Python</span>
+              <span class="chip">Machine Learning</span>
+              <span class="chip">StatBomb</span>
+              <span class="chip">Streamlit</span>
+            </div>
           </div>
         </div>
-
-      </div>
-    </div>
-
-  </div>
-        <div class="pr-card pr-placeholder">
-          <div class="placeholder-inner">
-            <span>🏗️</span>
-            <p data-i18n="projects.coming">Projet à venir</p>
+        <div class="pr-card proj-has-img">
+          <div class="proj-thumb" onclick="openLightbox('data-penalty', 'https://github.com/kzamord/penalty_kick_prediction', 'Voir sur GitHub →')">
+            <img id="data-penalty" src="images/Project_penalty_kick.jpg" alt="Penalty Kick Prediction" />
+          </div>
+          <div class="proj-content">
+            <div class="pr-type"><span class="pr-dot"></span><span data-i18n="projects.p_penalty.type">Computer Vision · Football</span></div>
+            <h3 class="pr-name" data-i18n="projects.p_penalty.name">Penalty Kick Prediction</h3>
+            <p class="pr-body" data-i18n="projects.p_penalty.body">Projet de computer vision analysant les tirs au but. Le modèle détecte les joueurs par leur forme et leur couleur de maillot, puis extrait des données biomécaniques (angle du genou) permettant de prédire la direction du tir avant que la frappe ait lieu.</p>
+            <div class="pr-stack">
+              <span class="chip">Python</span>
+              <span class="chip">Computer Vision</span>
+              <span class="chip">OpenCV</span>
+              <span class="chip">Deep Learning</span>
+            </div>
           </div>
         </div>
       </div>
