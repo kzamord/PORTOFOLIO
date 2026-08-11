@@ -171,13 +171,15 @@
     }
     .gallery-thumb {
       width: calc(33.333% - 7px);
-      height: 90px;
-      object-fit: cover;
-      object-position: top;
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      object-position: center;
+      background: var(--bg3);
       border-radius: 8px;
       cursor: zoom-in;
       border: 2px solid var(--border);
       transition: border-color 0.2s, transform 0.2s;
+      padding: 4px;
     }
     .gallery-thumb:hover {
       border-color: var(--accent);
@@ -426,20 +428,20 @@
       <div class="proj-grid" style="grid-template-columns:1fr;">
 
         <div class="pr-card proj-has-img">
-          <div class="proj-thumb" style="height:280px;" onclick="openLightbox('data-nba-1', null, null)">
-            <img id="data-nba-1" src="images/MVP_v2_1.png" alt="NBA MVP Analysis" />
+          <div class="proj-thumb" style="height:280px;" onclick="openLightbox('data-nba-2', null, null)">
+            <img id="data-nba-2" src="images/DPOY_2.png" alt="DPOY Radar Chart" style="object-position:center;" />
           </div>
           <div class="proj-content">
             <div class="pr-type"><span class="pr-dot"></span><span data-i18n="projects.p_nba.type">Data Analysis · NBA</span></div>
             <h3 class="pr-name" data-i18n="projects.p_nba.name">Comparatifs des Performances NBA</h3>
             <p class="pr-body" data-i18n="projects.p_nba.body">Analyse comparative des joueurs NBA éligibles aux titres individuels de la saison — MVP, DPOY et autres récompenses. Le projet croise des métriques avancées (PER, Win Shares, VORP, Box Plus/Minus) pour objectiver les débats et apporter une lecture data-driven sur les candidats les plus méritants.</p>
-            <p style="font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;">Aperçus</p>
+            <p style="font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px;" data-i18n="projects.gallery">Aperçus</p>
             <div class="gallery-strip">
-              <img class="gallery-thumb" src="images/MVP_v2_1.png" alt="MVP Race" onclick="openLightbox('data-nba-1', null, null)" />
+              <img class="gallery-thumb" src="images/MVP_v2_2.png" alt="MVP Race" onclick="openLightbox('data-nba-1', null, null)" />
               <img class="gallery-thumb" src="images/DPOY_2.png"   alt="DPOY Race" onclick="openLightbox('data-nba-2', null, null)" />
               <img class="gallery-thumb" src="images/DPOY_3.png"   alt="DPOY Detail" onclick="openLightbox('data-nba-3', null, null)" />
             </div>
-            <img id="data-nba-2" src="images/DPOY_2.png" alt="DPOY 2" style="display:none" />
+            <img id="data-nba-1" src="images/MVP_v2_2.png" alt="MVP Race" style="display:none" />
             <img id="data-nba-3" src="images/DPOY_3.png" alt="DPOY 3" style="display:none" />
             <div class="pr-stack" style="margin-top:20px;">
               <span class="chip">Python</span>
