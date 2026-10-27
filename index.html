@@ -397,44 +397,48 @@
 
     <div class="testi-carousel-wrap reveal">
       <div class="testi-track">
-        <div class="testi-card" onclick="openLightbox('t-img-1',null,null)">
-          <div class="testi-thumb"><img id="t-img-1" src="images/miniature_01.png" alt="Témoignage Céline Madec" loading="lazy" /></div>
+        <!-- images cachées pleine résolution pour lightbox -->
+        <img id="t-full-1" src="images/temoignage_01.png" alt="Témoignage Céline Madec" style="display:none" />
+        <img id="t-full-2" src="images/temoignage_02.png" alt="Témoignage Céline Madec" style="display:none" />
+        <img id="t-full-3" src="images/temoignage_03.png" alt="Témoignage Brigitte Charton-Delorme" style="display:none" />
+        <div class="testi-card" onclick="openLightbox('t-full-1',null,null)">
+          <div class="testi-thumb"><img id="t-img-1" src="images/Miniatures_01.png" alt="Témoignage Céline Madec" loading="lazy" /></div>
           <div class="testi-info">
             <div class="testi-avatar">CM</div>
             <div class="testi-text"><div class="testi-name">Céline Madec</div><div class="testi-role">Responsable Organisation</div></div>
           </div>
         </div>
-        <div class="testi-card" onclick="openLightbox('t-img-2',null,null)">
-          <div class="testi-thumb"><img id="t-img-2" src="images/miniature_02.png" alt="Témoignage Céline Madec" loading="lazy" /></div>
+        <div class="testi-card" onclick="openLightbox('t-full-2',null,null)">
+          <div class="testi-thumb"><img id="t-img-2" src="images/Miniatures_02.png" alt="Témoignage Céline Madec" loading="lazy" /></div>
           <div class="testi-info">
             <div class="testi-avatar">CM</div>
             <div class="testi-text"><div class="testi-name">Céline Madec</div><div class="testi-role">Responsable Organisation</div></div>
           </div>
         </div>
-        <div class="testi-card" onclick="openLightbox('t-img-3',null,null)">
-          <div class="testi-thumb"><img id="t-img-3" src="images/miniature_03.png" alt="Témoignage Brigitte Charton-Delorme" loading="lazy" /></div>
+        <div class="testi-card" onclick="openLightbox('t-full-3',null,null)">
+          <div class="testi-thumb"><img id="t-img-3" src="images/Miniatures_03.png" alt="Témoignage Brigitte Charton-Delorme" loading="lazy" /></div>
           <div class="testi-info">
             <div class="testi-avatar">BC</div>
             <div class="testi-text"><div class="testi-name">Brigitte Charton-Delorme</div><div class="testi-role">Directrice des activités déléguées</div></div>
           </div>
         </div>
         <!-- duplicates pour boucle infinie -->
-        <div class="testi-card" onclick="openLightbox('t-img-1',null,null)">
-          <div class="testi-thumb"><img src="images/miniature_01.png" alt="Témoignage Céline Madec" loading="lazy" /></div>
+        <div class="testi-card" onclick="openLightbox('t-full-1',null,null)">
+          <div class="testi-thumb"><img src="images/Miniatures_01.png" alt="Témoignage Céline Madec" loading="lazy" /></div>
           <div class="testi-info">
             <div class="testi-avatar">CM</div>
             <div class="testi-text"><div class="testi-name">Céline Madec</div><div class="testi-role">Responsable Organisation</div></div>
           </div>
         </div>
-        <div class="testi-card" onclick="openLightbox('t-img-2',null,null)">
-          <div class="testi-thumb"><img src="images/miniature_02.png" alt="Témoignage Céline Madec" loading="lazy" /></div>
+        <div class="testi-card" onclick="openLightbox('t-full-2',null,null)">
+          <div class="testi-thumb"><img src="images/Miniatures_02.png" alt="Témoignage Céline Madec" loading="lazy" /></div>
           <div class="testi-info">
             <div class="testi-avatar">CM</div>
             <div class="testi-text"><div class="testi-name">Céline Madec</div><div class="testi-role">Responsable Organisation</div></div>
           </div>
         </div>
-        <div class="testi-card" onclick="openLightbox('t-img-3',null,null)">
-          <div class="testi-thumb"><img src="images/miniature_03.png" alt="Témoignage Brigitte Charton-Delorme" loading="lazy" /></div>
+        <div class="testi-card" onclick="openLightbox('t-full-3',null,null)">
+          <div class="testi-thumb"><img src="images/Miniatures_03.png" alt="Témoignage Brigitte Charton-Delorme" loading="lazy" /></div>
           <div class="testi-info">
             <div class="testi-avatar">BC</div>
             <div class="testi-text"><div class="testi-name">Brigitte Charton-Delorme</div><div class="testi-role">Directrice des activités déléguées</div></div>
