@@ -3,937 +3,203 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kevin ZAMORD – Data & BI Analyst</title>
+  <title>Kevin ZAMORD – Data Analyst</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:       #F7F5F0;
-      --bg2:      #FFFFFF;
-      --bg3:      #EEEAE2;
-      --ink:      #0F0E0C;
-      --ink-mid:  #4A4740;
-      --ink-soft: #9A968E;
-      --accent:   #1A6BF0;
-      --accent2:  #F04E1A;
-      --accent-bg:#EEF3FE;
-      --border:   #E2DDD6;
-      --shadow:   0 1px 3px rgba(15,14,12,0.06), 0 8px 32px rgba(15,14,12,0.06);
-      --shadow-lg:0 2px 8px rgba(15,14,12,0.06), 0 24px 64px rgba(15,14,12,0.1);
-      --radius:   12px;
+      --bg:#F7F5F0; --bg2:#FFFFFF; --bg3:#EEEAE2;
+      --ink:#0F0E0C; --ink-mid:#4A4740; --ink-soft:#9A968E;
+      --accent:#1A6BF0; --accent2:#F04E1A; --accent-bg:#EEF3FE;
+      --border:#E2DDD6;
+      --shadow:0 1px 3px rgba(15,14,12,0.06),0 8px 32px rgba(15,14,12,0.06);
+      --shadow-lg:0 2px 8px rgba(15,14,12,0.06),0 24px 64px rgba(15,14,12,0.1);
+      --radius:12px;
     }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-
-    body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: 'DM Sans', sans-serif;
-      -webkit-font-smoothing: antialiased;
-    }
+    *{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--bg);color:var(--ink);font-family:'DM Sans',sans-serif;-webkit-font-smoothing:antialiased;}
 
     /* NAV */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 0 48px;
-      height: 68px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(247,245,240,0.88);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border);
-    }
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 48px;height:68px;display:flex;justify-content:space-between;align-items:center;background:rgba(247,245,240,0.88);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+    .nav-logo{font-family:'DM Serif Display',serif;font-size:20px;color:var(--ink);}
+    .nav-links{display:flex;gap:6px;list-style:none;}
+    .nav-links a{color:var(--ink-mid);text-decoration:none;font-size:14px;font-weight:500;padding:7px 14px;border-radius:8px;transition:background 0.2s,color 0.2s;}
+    .nav-links a:hover{background:var(--bg3);color:var(--ink);}
+    .nav-links a.nav-active{background:var(--ink);color:var(--bg)!important;border-radius:8px;}
+    .nav-cta{background:transparent!important;color:var(--ink-mid)!important;}
+    .nav-cta:hover{background:var(--bg3)!important;color:var(--ink)!important;}
 
-    .nav-logo {
-      font-family: 'DM Serif Display', serif;
-      font-size: 20px;
-      color: var(--ink);
-    }
-
-    .nav-links { display: flex; gap: 6px; list-style: none; }
-
-    .nav-links a {
-      color: var(--ink-mid);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      padding: 7px 14px;
-      border-radius: 8px;
-      transition: background 0.2s, color 0.2s;
-    }
-
-    .nav-links a:hover { background: var(--bg3); color: var(--ink); }
-
-    .nav-cta {
-      background: transparent !important;
-      color: var(--ink-mid) !important;
-    }
-    .nav-cta:hover {
-      background: var(--bg3) !important;
-      color: var(--ink) !important;
-    }
-
-    /* LANG SWITCHER */
-    .lang-switch {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-      background: var(--bg3);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 3px;
-      margin-left: 16px;
-    }
-
-    .lang-btn {
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      padding: 5px 10px;
-      border-radius: 6px;
-      border: none;
-      background: transparent;
-      color: var(--ink-soft);
-      cursor: pointer;
-      transition: background 0.2s, color 0.2s;
-      font-family: 'DM Sans', sans-serif;
-    }
-
-    .lang-btn.active {
-      background: var(--bg2);
-      color: var(--ink);
-      box-shadow: 0 1px 4px rgba(15,14,12,0.08);
-    }
+    /* LANG */
+    .lang-switch{display:flex;align-items:center;gap:2px;background:var(--bg3);border:1px solid var(--border);border-radius:8px;padding:3px;margin-left:16px;}
+    .lang-btn{font-size:12px;font-weight:600;letter-spacing:0.5px;padding:5px 10px;border-radius:6px;border:none;background:transparent;color:var(--ink-soft);cursor:pointer;transition:background 0.2s,color 0.2s;font-family:'DM Sans',sans-serif;}
+    .lang-btn.active{background:var(--bg2);color:var(--ink);box-shadow:0 1px 4px rgba(15,14,12,0.08);}
 
     /* HERO */
-    #hero {
-      min-height: 100vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 120px 48px 80px;
-      gap: 60px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    #hero::before { display: none; }
-
-    .hero-left { position: relative; z-index: 1; }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--accent-bg);
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-      padding: 6px 14px;
-      border-radius: 100px;
-      margin-bottom: 32px;
-      border: 1px solid rgba(26,107,240,0.2);
-      opacity: 0;
-      animation: fadeUp 0.7s ease 0.1s forwards;
-    }
-
-    .badge-dot {
-      width: 7px; height: 7px;
-      background: var(--accent);
-      border-radius: 50%;
-      animation: blink 2s ease-in-out infinite;
-    }
-
-    @keyframes blink {
-      0%,100% { opacity: 1; }
-      50% { opacity: 0.3; }
-    }
-
-    .hero-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(52px, 5.5vw, 88px);
-      line-height: 1.0;
-      letter-spacing: -2px;
-      margin-bottom: 8px;
-      opacity: 0;
-      animation: fadeUp 0.7s ease 0.25s forwards;
-    }
-
-    .hero-title em { font-style: normal; color: var(--accent); }
-
-    .hero-role {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(52px, 5.5vw, 88px);
-      letter-spacing: -2px;
-      line-height: 1.0;
-      color: var(--ink);
-      margin-bottom: 28px;
-      opacity: 0;
-      animation: fadeUp 0.7s ease 0.35s forwards;
-    }
-
-    .hero-sub {
-      font-size: 18px;
-      color: var(--ink-mid);
-      line-height: 1.7;
-      font-weight: 300;
-      max-width: 460px;
-      margin-bottom: 40px;
-      opacity: 0;
-      animation: fadeUp 0.7s ease 0.4s forwards;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      opacity: 0;
-      animation: fadeUp 0.7s ease 0.55s forwards;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 13px 28px;
-      border-radius: 10px;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: all 0.2s;
-    }
-
-    .btn-dark {
-      background: var(--ink);
-      color: var(--bg);
-      box-shadow: 0 2px 12px rgba(15,14,12,0.15);
-    }
-    .btn-dark:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(15,14,12,0.22); }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--ink);
-      border: 1.5px solid var(--border);
-    }
-    .btn-outline:hover { border-color: var(--ink-mid); background: var(--bg3); }
-
-    /* Hero photo */
-    .hero-right {
-      position: relative;
-      z-index: 1;
-      display: flex;
-      justify-content: center;
-      opacity: 0;
-      animation: fadeLeft 0.8s ease 0.65s forwards;
-    }
-
-    @keyframes fadeLeft {
-      from { opacity: 0; transform: translateX(24px); }
-      to   { opacity: 1; transform: none; }
-    }
-
-    .hero-photo-wrap {
-      position: relative;
-      width: 340px;
-    }
-
-    .hero-photo-wrap img {
-      width: 100%;
-      aspect-ratio: 3/4;
-      object-fit: cover;
-      object-position: top;
-      border-radius: 24px;
-      display: block;
-      box-shadow: var(--shadow-lg);
-    }
-
-    /* Hero stats row */
-    .hero-stats {
-      display: flex;
-      gap: 32px;
-      margin-top: 36px;
-      padding-top: 32px;
-      border-top: 1px solid var(--border);
-      opacity: 0;
-      animation: fadeUp 0.7s ease 0.7s forwards;
-    }
-
-    .hstat-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 32px;
-      letter-spacing: -1px;
-      line-height: 1;
-      color: var(--ink);
-    }
-
-    .hstat-num .c { color: var(--accent); }
-
-    .hstat-label {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      margin-top: 4px;
-      line-height: 1.3;
-    }
+    #hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:120px 48px 80px;gap:60px;position:relative;overflow:hidden;}
+    .hero-left{position:relative;z-index:1;}
+    .hero-badge{display:inline-flex;align-items:center;gap:8px;background:var(--accent-bg);color:var(--accent);font-size:12px;font-weight:600;padding:6px 14px;border-radius:100px;margin-bottom:32px;border:1px solid rgba(26,107,240,0.2);opacity:0;animation:fadeUp 0.7s ease 0.1s forwards;}
+    .badge-dot{width:7px;height:7px;background:var(--accent);border-radius:50%;animation:blink 2s ease-in-out infinite;}
+    @keyframes blink{0%,100%{opacity:1;}50%{opacity:0.3;}}
+    .hero-title{font-family:'DM Serif Display',serif;font-size:clamp(52px,5.5vw,88px);line-height:1.0;letter-spacing:-2px;margin-bottom:8px;opacity:0;animation:fadeUp 0.7s ease 0.25s forwards;}
+    .hero-title em{font-style:normal;color:var(--accent);}
+    .hero-role{font-family:'DM Serif Display',serif;font-size:clamp(52px,5.5vw,88px);letter-spacing:-2px;line-height:1.0;color:var(--ink);margin-bottom:28px;opacity:0;animation:fadeUp 0.7s ease 0.35s forwards;}
+    .hero-sub{font-size:18px;color:var(--ink-mid);line-height:1.7;font-weight:300;max-width:460px;margin-bottom:40px;opacity:0;animation:fadeUp 0.7s ease 0.4s forwards;}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap;opacity:0;animation:fadeUp 0.7s ease 0.55s forwards;}
+    .btn{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:10px;font-size:14px;font-weight:600;text-decoration:none;transition:all 0.2s;}
+    .btn-dark{background:var(--ink);color:var(--bg);box-shadow:0 2px 12px rgba(15,14,12,0.15);}
+    .btn-dark:hover{transform:translateY(-2px);box-shadow:0 6px 24px rgba(15,14,12,0.22);}
+    .btn-outline{background:transparent;color:var(--ink);border:1.5px solid var(--border);}
+    .btn-outline:hover{border-color:var(--ink-mid);background:var(--bg3);}
+    .btn-cv{background:transparent;color:var(--accent);border:1.5px solid var(--accent);}
+    .btn-cv:hover{background:var(--accent-bg);}
+    .hero-stats{display:flex;gap:32px;margin-top:36px;padding-top:32px;border-top:1px solid var(--border);opacity:0;animation:fadeUp 0.7s ease 0.7s forwards;}
+    .hstat-num{font-family:'DM Serif Display',serif;font-size:32px;letter-spacing:-1px;line-height:1;color:var(--ink);}
+    .hstat-num .c{color:var(--accent);}
+    .hstat-label{font-size:11px;font-weight:600;letter-spacing:0.5px;text-transform:uppercase;color:var(--ink-soft);margin-top:4px;line-height:1.3;}
+    .hero-right{position:relative;z-index:1;display:flex;justify-content:center;opacity:0;animation:fadeLeft 0.8s ease 0.65s forwards;}
+    @keyframes fadeLeft{from{opacity:0;transform:translateX(24px);}to{opacity:1;transform:none;}}
+    .hero-photo-wrap{position:relative;width:340px;}
+    .hero-photo-wrap img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;border-radius:24px;display:block;box-shadow:var(--shadow-lg);}
 
     /* SECTIONS */
-    section { padding: 112px 48px; }
-
-    .eyebrow {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-
-    .eyebrow-n {
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      color: var(--accent);
-    }
-
-    .eyebrow-l {
-      height: 1px;
-      width: 40px;
-      background: var(--accent);
-      opacity: 0.4;
-    }
-
-    .s-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(36px, 4vw, 60px);
-      letter-spacing: -1.5px;
-      line-height: 1.05;
-      margin-bottom: 16px;
-    }
-
-    .s-title em { font-style: italic; color: var(--accent); }
-
-    .s-lead {
-      font-size: 17px;
-      color: var(--ink-mid);
-      line-height: 1.7;
-      font-weight: 300;
-      max-width: 520px;
-    }
+    section{padding:112px 48px;}
+    .eyebrow{display:flex;align-items:center;gap:12px;margin-bottom:20px;}
+    .eyebrow-n{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);}
+    .eyebrow-l{height:1px;width:40px;background:var(--accent);opacity:0.4;}
+    .s-title{font-family:'DM Serif Display',serif;font-size:clamp(36px,4vw,60px);letter-spacing:-1.5px;line-height:1.05;margin-bottom:16px;}
+    .s-title em{font-style:italic;color:var(--accent);}
+    .s-lead{font-size:17px;color:var(--ink-mid);line-height:1.7;font-weight:300;max-width:520px;}
 
     /* ABOUT */
-    #about { background: var(--bg2); }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.1fr;
-      gap: 80px;
-      align-items: start;
-      margin-top: 64px;
-    }
-
-    .about-body p {
-      font-size: 16px;
-      line-height: 1.85;
-      color: var(--ink-mid);
-      margin-bottom: 18px;
-      font-weight: 300;
-    }
-
-    .about-body p:last-child { margin-bottom: 0; }
-    .about-body strong { color: var(--ink); font-weight: 600; }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .stat-tile {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px 24px;
-      transition: box-shadow 0.25s, transform 0.25s;
-    }
-
-    .stat-tile:hover { box-shadow: var(--shadow); transform: translateY(-2px); }
-
-    .stat-num {
-      font-family: 'DM Serif Display', serif;
-      font-size: 44px;
-      letter-spacing: -2px;
-      line-height: 1;
-      margin-bottom: 6px;
-      color: var(--ink);
-    }
-
-    .stat-num .c { color: var(--accent2); }
-    .stat-label { font-size: 13px; color: var(--ink-soft); line-height: 1.4; }
+    #about{background:var(--bg2);}
+    .about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:80px;align-items:start;margin-top:64px;}
+    .about-body p{font-size:16px;line-height:1.85;color:var(--ink-mid);margin-bottom:18px;font-weight:300;}
+    .about-body p:last-child{margin-bottom:0;}
+    .about-body strong{color:var(--ink);font-weight:600;}
+    .stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+    .stat-tile{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);padding:28px 24px;transition:box-shadow 0.25s,transform 0.25s;}
+    .stat-tile:hover{box-shadow:var(--shadow);transform:translateY(-2px);}
+    .stat-num{font-family:'DM Serif Display',serif;font-size:44px;letter-spacing:-2px;line-height:1;margin-bottom:6px;color:var(--ink);}
+    .stat-num .c{color:var(--accent2);}
+    .stat-label{font-size:13px;color:var(--ink-soft);line-height:1.4;}
 
     /* SKILLS */
-    #skills { background: var(--bg); }
-
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-top: 64px;
-    }
-
-    .sk-tile {
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 36px 32px;
-      transition: box-shadow 0.25s, transform 0.25s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .sk-tile::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), #7BB2FF);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.35s;
-    }
-
-    .sk-tile:hover::after { transform: scaleX(1); }
-    .sk-tile:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
-
-    .sk-icon {
-      width: 48px; height: 48px;
-      border-radius: 10px;
-      background: var(--accent-bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      margin-bottom: 20px;
-    }
-
-    .sk-name { font-size: 17px; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.3px; }
-
-    .sk-desc { font-size: 14px; color: var(--ink-soft); line-height: 1.65; font-weight: 300; margin-bottom: 20px; }
-
-    .pills { display: flex; flex-wrap: wrap; gap: 6px; }
-
-    .pill {
-      font-size: 11px;
-      font-weight: 500;
-      padding: 4px 10px;
-      border-radius: 6px;
-      background: var(--bg3);
-      color: var(--ink-mid);
-      border: 1px solid var(--border);
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
-    }
-
-    .sk-tile:hover .pill {
-      background: var(--accent-bg);
-      color: var(--accent);
-      border-color: rgba(26,107,240,0.2);
-    }
+    #skills{background:var(--bg);}
+    .skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:64px;}
+    .sk-tile{background:var(--bg2);border:1px solid var(--border);border-radius:var(--radius);padding:36px 32px;transition:box-shadow 0.25s,transform 0.25s;position:relative;overflow:hidden;}
+    .sk-tile::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),#7BB2FF);transform:scaleX(0);transform-origin:left;transition:transform 0.35s;}
+    .sk-tile:hover::after{transform:scaleX(1);}
+    .sk-tile:hover{box-shadow:var(--shadow);transform:translateY(-3px);}
+    .sk-icon{width:48px;height:48px;border-radius:10px;background:var(--accent-bg);display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:20px;}
+    .sk-name{font-size:17px;font-weight:600;margin-bottom:10px;letter-spacing:-0.3px;}
+    .sk-desc{font-size:14px;color:var(--ink-soft);line-height:1.65;font-weight:300;margin-bottom:20px;}
+    .pills{display:flex;flex-wrap:wrap;gap:6px;}
+    .pill{font-size:11px;font-weight:500;padding:4px 10px;border-radius:6px;background:var(--bg3);color:var(--ink-mid);border:1px solid var(--border);transition:background 0.2s,color 0.2s,border-color 0.2s;}
+    .sk-tile:hover .pill{background:var(--accent-bg);color:var(--accent);border-color:rgba(26,107,240,0.2);}
 
     /* PROJECTS */
-    #projects { background: var(--bg2); }
-
-    .proj-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
-
-    .pr-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      transition: box-shadow 0.25s, transform 0.25s;
-    }
-
-    .pr-card:hover { box-shadow: var(--shadow); transform: translateY(-3px); }
-
-    .proj-has-img { display: flex; flex-direction: column; }
-
-    .proj-thumb {
-      position: relative;
-      overflow: hidden;
-      height: 200px;
-      cursor: zoom-in;
-    }
-
-    .proj-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-
-    .pr-card:hover .proj-thumb img { transform: scale(1.03); }
-
-    .proj-content { padding: 28px 28px 32px; }
-
-    .pr-type {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: 1px;
-      text-transform: uppercase;
-      color: var(--ink-soft);
-      margin-bottom: 12px;
-    }
-
-    .pr-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent2); flex-shrink: 0; }
-
-    .pr-name {
-      font-family: 'DM Serif Display', serif;
-      font-size: 22px;
-      letter-spacing: -0.5px;
-      margin-bottom: 12px;
-      line-height: 1.2;
-    }
-
-    .pr-body {
-      font-size: 14px;
-      color: var(--ink-mid);
-      line-height: 1.7;
-      font-weight: 300;
-      margin-bottom: 20px;
-    }
-
-    .pr-stack { display: flex; flex-wrap: wrap; gap: 6px; }
-
-    .chip {
-      font-size: 11px;
-      font-weight: 500;
-      padding: 4px 12px;
-      border-radius: 6px;
-      background: var(--bg3);
-      color: var(--ink-mid);
-      border: 1px solid var(--border);
-    }
-
-    /* PROJECT TABS */
-    .proj-tabs {
-      display: flex;
-      gap: 12px;
-      margin: 48px 0 40px;
-      flex-wrap: wrap;
-    }
-
-    .proj-tab {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      padding: 12px 28px;
-      border-radius: 10px;
-      border: 1.5px solid var(--border);
-      background: transparent;
-      color: var(--ink-mid);
-      font-family: 'DM Sans', sans-serif;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.25s;
-    }
-
-    .proj-tab .tab-icon { font-size: 18px; }
-
-    .proj-tab:hover {
-      border-color: var(--accent);
-      color: var(--accent);
-      background: var(--accent-bg);
-    }
-
-    .proj-tab.active {
-      background: var(--ink);
-      border-color: var(--ink);
-      color: var(--bg);
-    }
-
-    .tab-panel { display: none; }
-    .tab-panel.active {
-      display: block;
-      animation: fadeUp 0.35s ease;
-    }
-
-    /* ── LOGO CAROUSEL ─────────────────────────────── */
-    .clients-band {
-      background: var(--bg2);
-      border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-      padding: 32px 0;
-      overflow: hidden;
-      position: relative;
-    }
-
-    .clients-band::before,
-    .clients-band::after {
-      content: '';
-      position: absolute;
-      top: 0; bottom: 0;
-      width: 120px;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .clients-band::before {
-      left: 0;
-      background: linear-gradient(to right, var(--bg2), transparent);
-    }
-
-    .clients-band::after {
-      right: 0;
-      background: linear-gradient(to left, var(--bg2), transparent);
-    }
-
-    .clients-track {
-      display: flex;
-      align-items: center;
-      gap: 64px;
-      width: max-content;
-      animation: scrollLogos 32s linear infinite;
-    }
-
-    .clients-band:hover .clients-track {
-      animation-play-state: paused;
-    }
-
-    @keyframes scrollLogos {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    .logo-item {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      height: 44px;
-      opacity: 0.55;
-      transition: opacity 0.3s;
-      filter: grayscale(1);
-    }
-
-    .logo-item:hover {
-      opacity: 1;
-      filter: grayscale(0);
-    }
-
-    .logo-item img {
-      height: 100%;
-      width: auto;
-      max-width: 140px;
-      object-fit: contain;
-    }
-
-    /* ── TESTIMONIALS CAROUSEL ─────────────────────── */
-    #testimonials { background: var(--bg); }
-
-    .testi-carousel-wrap {
-      position: relative;
-      overflow: hidden;
-      margin-top: 56px;
-    }
-
-    .testi-carousel-wrap::before,
-    .testi-carousel-wrap::after {
-      content: '';
-      position: absolute;
-      top: 0; bottom: 0;
-      width: 80px;
-      z-index: 2;
-      pointer-events: none;
-    }
-
-    .testi-carousel-wrap::before {
-      left: 0;
-      background: linear-gradient(to right, var(--bg), transparent);
-    }
-
-    .testi-carousel-wrap::after {
-      right: 0;
-      background: linear-gradient(to left, var(--bg), transparent);
-    }
-
-    .testi-track {
-      display: flex;
-      align-items: center;
-      gap: 32px;
-      width: max-content;
-      animation: scrollTestis 40s linear infinite;
-    }
-
-    .testi-carousel-wrap:hover .testi-track {
-      animation-play-state: paused;
-    }
-
-    @keyframes scrollTestis {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-
-    .testi-card {
-      flex-shrink: 0;
-      width: 360px;
-      background: var(--bg2);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      cursor: zoom-in;
-      transition: transform 0.25s, box-shadow 0.25s;
-    }
-
-    .testi-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .testi-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    .testi-info {
-      padding: 14px 18px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      background: var(--bg2);
-    }
-
-    .testi-avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), #7BB2FF);
-      color: #fff;
-      font-size: 12px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      letter-spacing: 0.5px;
-    }
-
-    .testi-text { display: flex; flex-direction: column; gap: 2px; }
-
-    .testi-name {
-      font-size: 13px;
-      font-weight: 600;
-      color: var(--ink);
-      line-height: 1.2;
-    }
-
-    .testi-role {
-      font-size: 11px;
-      color: var(--ink-soft);
-      line-height: 1.2;
-    }
-
-    /* ── LIGHTBOX ──────────────────────────────── */
-    .lightbox-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 1000;
-      background: rgba(15,14,12,0.85);
-      backdrop-filter: blur(6px);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 20px;
-      padding: 24px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.25s ease;
-    }
-
-    .lightbox-overlay.open {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .lightbox-img-wrap {
-      max-width: 90vw;
-      max-height: 78vh;
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 24px 80px rgba(0,0,0,0.5);
-      transform: scale(0.94);
-      transition: transform 0.3s ease;
-    }
-
-    .lightbox-overlay.open .lightbox-img-wrap {
-      transform: scale(1);
-    }
-
-    .lightbox-img-wrap img {
-      display: block;
-      max-width: 90vw;
-      max-height: 78vh;
-      width: auto;
-      height: auto;
-      object-fit: contain;
-    }
-
-    .lightbox-actions {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-
-    .lightbox-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 11px 24px;
-      background: var(--accent);
-      color: #fff;
-      font-size: 14px;
-      font-weight: 600;
-      text-decoration: none;
-      border-radius: 8px;
-      transition: opacity 0.2s;
-    }
-
-    .lightbox-link:hover { opacity: 0.85; }
-
-    .lightbox-close {
-      width: 40px; height: 40px;
-      border-radius: 50%;
-      border: 1.5px solid rgba(255,255,255,0.25);
-      background: rgba(255,255,255,0.08);
-      color: #fff;
-      font-size: 18px;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.2s;
-    }
-
-    .lightbox-close:hover { background: rgba(255,255,255,0.18); }
+    #projects{background:var(--bg2);}
+    .proj-tabs{display:flex;gap:12px;margin:48px 0 40px;flex-wrap:wrap;}
+    .proj-tab{display:inline-flex;align-items:center;gap:10px;padding:12px 28px;border-radius:10px;border:1.5px solid var(--border);background:transparent;color:var(--ink-mid);font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer;transition:all 0.25s;}
+    .proj-tab .tab-icon{font-size:18px;}
+    .proj-tab:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-bg);}
+    .proj-tab.active{background:var(--ink);border-color:var(--ink);color:var(--bg);}
+    .tab-panel{display:none;}
+    .tab-panel.active{display:block;animation:fadeUp 0.35s ease;}
+    .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;}
+    .pr-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:box-shadow 0.25s,transform 0.25s;}
+    .pr-card:hover{box-shadow:var(--shadow);transform:translateY(-3px);}
+    .proj-has-img{display:flex;flex-direction:column;}
+    .proj-thumb{position:relative;overflow:hidden;height:200px;cursor:zoom-in;}
+    .proj-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform 0.4s ease;}
+    .pr-card:hover .proj-thumb img{transform:scale(1.03);}
+    .proj-thumb-link{display:none;}
+    .proj-content{padding:28px 28px 32px;}
+    .pr-type{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px;}
+    .pr-dot{width:6px;height:6px;border-radius:50%;background:var(--accent2);flex-shrink:0;}
+    .pr-name{font-family:'DM Serif Display',serif;font-size:22px;letter-spacing:-0.5px;margin-bottom:12px;line-height:1.2;}
+    .pr-body{font-size:14px;color:var(--ink-mid);line-height:1.7;font-weight:300;margin-bottom:20px;}
+    .pr-stack{display:flex;flex-wrap:wrap;gap:6px;}
+    .chip{font-size:11px;font-weight:500;padding:4px 12px;border-radius:6px;background:var(--bg3);color:var(--ink-mid);border:1px solid var(--border);}
 
     /* CONTACT */
-    #contact {
-      background: var(--bg2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      min-height: 70vh;
-    }
-
-    .ct-inner { max-width: 680px; }
-
-    .ct-title {
-      font-family: 'DM Serif Display', serif;
-      font-size: clamp(44px, 5vw, 76px);
-      letter-spacing: -2.5px;
-      line-height: 1.0;
-      margin-bottom: 20px;
-    }
-
-    .ct-title em { font-style: italic; color: var(--accent); }
-
-    .ct-sub {
-      font-size: 17px;
-      color: var(--ink-mid);
-      line-height: 1.7;
-      font-weight: 300;
-      margin-bottom: 48px;
-    }
-
-    .ct-btns { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
-
-    .ct-link {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 14px;
-      font-weight: 500;
-      color: var(--ink-soft);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .ct-link:hover { color: var(--accent); }
+    #contact{background:var(--bg);display:flex;align-items:center;justify-content:center;text-align:center;min-height:70vh;}
+    .ct-inner{max-width:680px;}
+    .ct-title{font-family:'DM Serif Display',serif;font-size:clamp(44px,5vw,76px);letter-spacing:-2.5px;line-height:1.0;margin-bottom:20px;}
+    .ct-title em{font-style:italic;color:var(--accent);}
+    .ct-sub{font-size:17px;color:var(--ink-mid);line-height:1.7;font-weight:300;margin-bottom:48px;}
+    .ct-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-bottom:40px;}
 
     /* FOOTER */
-    footer {
-      padding: 24px 48px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: var(--bg2);
-    }
-
-    footer p { font-size: 13px; color: var(--ink-soft); }
+    footer{padding:24px 48px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--bg2);}
+    footer p{font-size:13px;color:var(--ink-soft);}
 
     /* REVEAL */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.65s ease, transform 0.65s ease;
-    }
-    .reveal.visible { opacity: 1; transform: none; }
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity 0.65s ease,transform 0.65s ease;}
+    .reveal.visible{opacity:1;transform:none;}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
 
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: none; }
-    }
+    /* LOGO CAROUSEL */
+    .clients-band{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:32px 0;overflow:hidden;position:relative;}
+    .clients-band::before,.clients-band::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none;}
+    .clients-band::before{left:0;background:linear-gradient(to right,var(--bg2),transparent);}
+    .clients-band::after{right:0;background:linear-gradient(to left,var(--bg2),transparent);}
+    .clients-track{display:flex;align-items:center;gap:64px;width:max-content;animation:scrollLogos 28s linear infinite;}
+    .clients-band:hover .clients-track{animation-play-state:paused;}
+    @keyframes scrollLogos{from{transform:translateX(0);}to{transform:translateX(-33.333%);}}
+    .logo-item{display:flex;align-items:center;justify-content:center;flex-shrink:0;height:44px;opacity:0.55;transition:opacity 0.3s;filter:grayscale(1);}
+    .logo-item:hover{opacity:1;filter:grayscale(0);}
+    .logo-item img{height:100%;width:auto;max-width:140px;object-fit:contain;}
 
-    .btn-cv {
-      background: transparent;
-      color: var(--accent);
-      border: 1.5px solid var(--accent);
-    }
-    .btn-cv:hover {
-      background: var(--accent-bg);
-      border-color: var(--accent);
-    }
+    /* LIGHTBOX */
+    .lightbox-overlay{position:fixed;inset:0;z-index:1000;background:rgba(15,14,12,0.85);backdrop-filter:blur(6px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:24px;opacity:0;pointer-events:none;transition:opacity 0.25s ease;}
+    .lightbox-overlay.open{opacity:1;pointer-events:all;}
+    .lightbox-img-wrap{max-width:90vw;max-height:78vh;border-radius:12px;overflow:hidden;box-shadow:0 24px 80px rgba(0,0,0,0.5);transform:scale(0.94);transition:transform 0.3s ease;}
+    .lightbox-overlay.open .lightbox-img-wrap{transform:scale(1);}
+    .lightbox-img-wrap img{display:block;max-width:90vw;max-height:78vh;width:auto;height:auto;object-fit:contain;}
+    .lightbox-actions{display:flex;align-items:center;gap:16px;}
+    .lightbox-link{display:inline-flex;align-items:center;gap:8px;padding:11px 24px;background:var(--accent);color:#fff;font-size:14px;font-weight:600;text-decoration:none;border-radius:8px;transition:opacity 0.2s;}
+    .lightbox-link:hover{opacity:0.85;}
+    .lightbox-close{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.08);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;}
+    .lightbox-close:hover{background:rgba(255,255,255,0.18);}
 
-    .nav-links a.nav-active {
-      background: var(--ink);
-      color: var(--bg) !important;
+    .gallery-strip {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    .gallery-thumb {
+      width: calc(33.333% - 7px);
+      aspect-ratio: 1 / 1;
+      object-fit: contain;
+      object-position: center;
+      background: var(--bg3);
       border-radius: 8px;
+      cursor: zoom-in;
+      border: 2px solid var(--border);
+      transition: border-color 0.2s, transform 0.2s;
+      padding: 4px;
+    }
+    .gallery-thumb:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
     }
 
     /* RESPONSIVE */
-    @media (max-width: 960px) {
-      nav { padding: 0 24px; }
-      section { padding: 80px 24px; }
-      #hero { grid-template-columns: 1fr; padding: 120px 24px 80px; }
-      .hero-right { display: none; }
-      .about-grid { grid-template-columns: 1fr; gap: 48px; }
-      .skills-grid { grid-template-columns: 1fr 1fr; }
-      .proj-grid { grid-template-columns: 1fr; }
-      footer { flex-direction: column; gap: 8px; padding: 24px; text-align: center; }
+    @media(max-width:960px){
+      nav{padding:0 24px;}
+      section{padding:80px 24px;}
+      #hero{grid-template-columns:1fr;padding:120px 24px 80px;}
+      .hero-right{display:none;}
+      .about-grid{grid-template-columns:1fr;gap:48px;}
+      .skills-grid{grid-template-columns:1fr 1fr;}
+      .proj-grid{grid-template-columns:1fr;}
+      footer{flex-direction:column;gap:8px;padding:24px;text-align:center;}
     }
-
-    @media (max-width: 600px) {
-      .skills-grid { grid-template-columns: 1fr; }
-      .nav-links { display: none; }
+    @media(max-width:600px){
+      .skills-grid{grid-template-columns:1fr;}
+      .nav-links{display:none;}
     }
   </style>
 </head>
@@ -945,7 +211,6 @@
       <li><a href="#about" data-i18n="nav.about">À propos</a></li>
       <li><a href="#skills" data-i18n="nav.skills">Compétences</a></li>
       <li><a href="#projects" data-i18n="nav.projects">Projets</a></li>
-      <li><a href="#testimonials" data-i18n="nav.testimonials">Témoignages</a></li>
       <li><a href="#contact" class="nav-cta" data-i18n="nav.contact">Contact</a></li>
     </ul>
     <div class="lang-switch">
@@ -961,14 +226,9 @@
         <span class="badge-dot"></span>
         <span data-i18n="hero.badge">Disponible pour missions freelance</span>
       </div>
-      <h1 class="hero-title">
-        Hello,<br>
-        <em>Kevin ZAMORD</em>
-      </h1>
+      <h1 class="hero-title">Hello,<br><em>Kevin ZAMORD</em></h1>
       <p class="hero-role">Data Analyst</p>
-      <p class="hero-sub" data-i18n="hero.sub">
-        Les entreprises m'appellent pour améliorer leurs prises de décisions avec l'aide de la data.
-      </p>
+      <p class="hero-sub" data-i18n="hero.sub">Les entreprises m'appellent pour améliorer leurs prises de décisions avec l'aide de la data.</p>
       <div class="hero-actions">
         <a href="#projects" class="btn btn-dark" data-i18n="hero.cta1">Voir mes projets →</a>
         <a href="#contact" class="btn btn-outline" data-i18n="hero.cta2">Me contacter</a>
@@ -979,7 +239,7 @@
       </div>
       <div class="hero-stats">
         <div>
-          <div class="hstat-num">8<span class="c">+</span></div>
+          <div class="hstat-num">7<span class="c">+</span></div>
           <div class="hstat-label" data-i18n="hero.stat1">Ans d'expérience</div>
         </div>
         <div>
@@ -1001,17 +261,21 @@
       <div class="logo-item"><img src="images/logo_allianz.svg" alt="Allianz" /></div>
       <div class="logo-item"><img src="images/logo_bnp.svg" alt="BNP Paribas" /></div>
       <div class="logo-item"><img src="images/logo_pacifica.svg" alt="CA Assurances" /></div>
-      <div class="logo-item"><img src="images/logo_MMH.svg" alt="Malakoff Humanis" /></div>
-      <div class="logo-item"><img src="images/logo_maif.png" alt="MAIF" /></div>
+      <div class="logo-item"><img src="images/logo_MMH.svg" alt="MMH" /></div>
       <div class="logo-item"><img src="images/logo_StatTheGame.png" alt="Stat The Game" /></div>
       <div class="logo-item"><img src="images/logo_ufirst.png" alt="Ufirst Advisory" /></div>
       <div class="logo-item"><img src="images/logo_finegan.png" alt="Finegan" /></div>
-      <!-- Duplicate for infinite scroll -->
       <div class="logo-item"><img src="images/logo_allianz.svg" alt="Allianz" /></div>
       <div class="logo-item"><img src="images/logo_bnp.svg" alt="BNP Paribas" /></div>
       <div class="logo-item"><img src="images/logo_pacifica.svg" alt="CA Assurances" /></div>
-      <div class="logo-item"><img src="images/logo_MMH.svg" alt="Malakoff Humanis" /></div>
-      <div class="logo-item"><img src="images/logo_maif.png" alt="MAIF" /></div>
+      <div class="logo-item"><img src="images/logo_MMH.svg" alt="MMH" /></div>
+      <div class="logo-item"><img src="images/logo_StatTheGame.png" alt="Stat The Game" /></div>
+      <div class="logo-item"><img src="images/logo_ufirst.png" alt="Ufirst Advisory" /></div>
+      <div class="logo-item"><img src="images/logo_finegan.png" alt="Finegan" /></div>
+      <div class="logo-item"><img src="images/logo_allianz.svg" alt="Allianz" /></div>
+      <div class="logo-item"><img src="images/logo_bnp.svg" alt="BNP Paribas" /></div>
+      <div class="logo-item"><img src="images/logo_pacifica.svg" alt="CA Assurances" /></div>
+      <div class="logo-item"><img src="images/logo_MMH.svg" alt="MMH" /></div>
       <div class="logo-item"><img src="images/logo_StatTheGame.png" alt="Stat The Game" /></div>
       <div class="logo-item"><img src="images/logo_ufirst.png" alt="Ufirst Advisory" /></div>
       <div class="logo-item"><img src="images/logo_finegan.png" alt="Finegan" /></div>
@@ -1029,7 +293,7 @@
       </div>
       <div class="stats-grid reveal">
         <div class="stat-tile">
-          <div class="stat-num">8<span class="c">+</span></div>
+          <div class="stat-num">7<span class="c">+</span></div>
           <div class="stat-label" data-i18n="about.stat1">Années d'expérience</div>
         </div>
         <div class="stat-tile">
@@ -1052,18 +316,19 @@
   <section id="skills">
     <div class="eyebrow reveal"><span class="eyebrow-n">02</span><span class="eyebrow-l"></span></div>
     <h2 class="s-title reveal"><span data-i18n="skills.title.prefix">Mes</span> <em data-i18n="skills.title.em">compétences</em></h2>
-    <p class="s-lead reveal" data-i18n="skills.lead">De la collecte brute à la décision éclairée, je couvre toute la chaîne de la donnée.</p>
+    <p class="s-lead reveal" data-i18n="skills.lead">De la collecte brute à la prise de décision, je couvre toute la chaîne de la donnée.</p>
     <div class="skills-grid">
-
       <div class="sk-tile reveal">
         <div class="sk-icon">🔌</div>
         <div class="sk-name" data-i18n="skills.s1.name">Data Collection</div>
         <p class="sk-desc" data-i18n="skills.s1.desc">Collecte et ingestion de données depuis des sources variées — APIs, bases de données, fichiers bruts.</p>
         <div class="pills">
           <span class="pill">Python</span>
+          <span class="pill">SAS</span>
+          <span class="pill">R</span>
+          <span class="pill">Dataiku</span>
         </div>
       </div>
-
       <div class="sk-tile reveal">
         <div class="sk-icon">🧹</div>
         <div class="sk-name" data-i18n="skills.s2.name">Data Preparation</div>
@@ -1076,11 +341,10 @@
           <span class="pill">Dataiku</span>
         </div>
       </div>
-
       <div class="sk-tile reveal">
         <div class="sk-icon">🔍</div>
         <div class="sk-name" data-i18n="skills.s3.name">Data Analysis</div>
-        <p class="sk-desc" data-i18n="skills.s3.desc">Analyse statistique et exploration des données pour identifier des tendances actionnables et appuyer la prise de décision métier.</p>
+        <p class="sk-desc" data-i18n="skills.s3.desc">Analyse statistique et exploration des données pour identifier des tendances et appuyer la prise de décision métier.</p>
         <div class="pills">
           <span class="pill">SAS</span>
           <span class="pill">Python</span>
@@ -1088,7 +352,6 @@
           <span class="pill">Dataiku</span>
         </div>
       </div>
-
       <div class="sk-tile reveal">
         <div class="sk-icon">📊</div>
         <div class="sk-name" data-i18n="skills.s4.name">Data Visualisation</div>
@@ -1097,9 +360,9 @@
           <span class="pill">Power BI</span>
           <span class="pill">DAX</span>
           <span class="pill">Tableau</span>
+          <span class="pill">Metrica</span>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -1109,20 +372,18 @@
     <h2 class="s-title reveal"><span data-i18n="projects.title.prefix">Projets</span> <em data-i18n="projects.title.em">récents</em></h2>
     <p class="s-lead reveal" data-i18n="projects.lead">Des livrables concrets avec des résultats mesurables.</p>
 
-    <!-- TABS NAV -->
     <div class="proj-tabs reveal">
-      <button class="proj-tab active" onclick="showTab('insurance')" data-i18n-tab="insurance">
-        <span class="tab-icon">🛡️</span>
-        <span data-i18n="projects.sector.insurance">Assurance</span>
-      </button>
-      <button class="proj-tab" onclick="showTab('sport')" data-i18n-tab="sport">
+      <button class="proj-tab active" onclick="showTab('football')" data-i18n-tab="football">
         <span class="tab-icon">⚽</span>
-        <span data-i18n="projects.sector.sport">Sport</span>
+        <span data-i18n="projects.sector.football">Football</span>
+      </button>
+      <button class="proj-tab" onclick="showTab('basketball')" data-i18n-tab="basketball">
+        <span class="tab-icon">🏀</span>
+        <span data-i18n="projects.sector.basketball">Basketball</span>
       </button>
     </div>
 
-    <!-- Sport -->
-    <div class="tab-panel" id="tab-sport">
+    <div class="tab-panel active" id="tab-football">
       <div class="proj-grid">
 
         <div class="pr-card proj-has-img">
@@ -1132,7 +393,7 @@
           <div class="proj-content">
             <div class="pr-type"><span class="pr-dot"></span><span data-i18n="projects.p_xsp.type">Machine Learning · Football</span></div>
             <h3 class="pr-name" data-i18n="projects.p_xsp.name">Expected Set Piece (XSP)</h3>
-            <p class="pr-body" data-i18n="projects.p_xsp.body">Modèle de machine learning permettant de déterminer la probabilité qu'un coup franc direct se convertisse en but. Basé sur les données StatBomb, le modèle prend en compte la position, la distance, la configuration défensive et le nombre d'attaquants pour générer un score XSP actionnable.</p>
+            <p class="pr-body" data-i18n="projects.p_xsp.body">Modèle de machine learning permettant de déterminer la probabilité qu'un coup franc direct se convertisse en but. Basé sur les données StatBomb, le modèle prend en compte la position, la distance, la configuration défensive et le nombre d'attaquants pour générer un score XSP actionnable. Ce projet permet au staff technique d'améliorer les patterns sur coups francs et aux football analysts d'intégrer cette nouvelle métrique dans leur analyse.</p>
             <div class="pr-stack">
               <span class="chip">Python</span>
               <span class="chip">Machine Learning</span>
@@ -1162,39 +423,31 @@
       </div>
     </div>
 
-    <!-- Assurance -->
-    <div class="tab-panel active" id="tab-insurance">
-      <div class="proj-grid">
+    <!-- BASKETBALL PANEL -->
+    <div class="tab-panel" id="tab-basketball">
+      <div class="proj-grid" style="grid-template-columns:1fr;">
 
         <div class="pr-card proj-has-img">
-          <div class="proj-thumb" onclick="openLightbox('data-pacifica', null, null)">
-            <img id="data-pacifica" src="images/Project_TDB_sinistre.png" alt="Tableau de bord Sinistres Pacifica" />
+          <div class="proj-thumb" style="height:280px;" onclick="openLightbox('data-nba-2', null, null)">
+            <img id="data-nba-2" src="images/DPOY_2.png" alt="DPOY Radar Chart" style="object-position:center;" />
           </div>
           <div class="proj-content">
-            <div class="pr-type"><span class="pr-dot"></span><span data-i18n="projects.p_pacifica.type">Power BI · Assurance · Pacifica</span></div>
-            <h3 class="pr-name" data-i18n="projects.p_pacifica.name">Refonte du TDB Direction des Sinistres</h3>
-            <p class="pr-body" data-i18n="projects.p_pacifica.body">Refonte complète du tableau de bord de la Direction des Sinistres. Ce projet a permis de répondre aux besoins métiers, d'intégrer rapidement les évolutions projet, d'offrir une meilleure flexibilité grâce à des filtres avancés et d'accélérer la production du reporting.</p>
-            <div class="pr-stack">
-              <span class="chip">Power BI</span>
-              <span class="chip">DAX</span>
-              <span class="chip">SQL</span>
+            <div class="pr-type"><span class="pr-dot"></span><span data-i18n="projects.p_nba.type">Data Analysis · NBA</span></div>
+            <h3 class="pr-name" data-i18n="projects.p_nba.name">Comparatifs des Performances NBA</h3>
+            <p class="pr-body" data-i18n="projects.p_nba.body">Analyse comparative des joueurs NBA éligibles aux titres individuels de la saison — MVP, DPOY et autres récompenses. Le projet croise des métriques avancées (PER, Win Shares, VORP, Box Plus/Minus) pour objectiver les débats et apporter une lecture data-driven sur les candidats les plus méritants.</p>
+            <p style="font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px;" data-i18n="projects.gallery">Aperçus</p>
+            <div class="gallery-strip">
+              <img class="gallery-thumb" src="images/MVP_v2_2.png" alt="MVP Race" onclick="openLightbox('data-nba-1', null, null)" />
+              <img class="gallery-thumb" src="images/DPOY_2.png"   alt="DPOY Race" onclick="openLightbox('data-nba-2', null, null)" />
+              <img class="gallery-thumb" src="images/DPOY_3.png"   alt="DPOY Detail" onclick="openLightbox('data-nba-3', null, null)" />
             </div>
-          </div>
-        </div>
-
-        <div class="pr-card proj-has-img">
-          <div class="proj-thumb" onclick="openLightbox('data-atypies', null, null)">
-            <img id="data-atypies" src="images/Project_ciblage_atypies.png" alt="Ciblage des atypies Malakoff Humanis" />
-          </div>
-          <div class="proj-content">
-            <div class="pr-type"><span class="pr-dot"></span><span data-i18n="projects.p_atypies.type">Data · Assurance · Malakoff Humanis</span></div>
-            <h3 class="pr-name" data-i18n="projects.p_atypies.name">Ciblage des Atypies — Détection de Fraude</h3>
-            <p class="pr-body" data-i18n="projects.p_atypies.body">Solution permettant aux équipes métier de détecter plus rapidement et efficacement des atypies. En un clic, le processus compile plusieurs sources, nettoie les données, applique les critères de contrôle et restitue une synthèse des dossiers suspects avec les montants associés.</p>
-            <div class="pr-stack">
-              <span class="chip">SAS</span>
-              <span class="chip">SQL</span>
+            <img id="data-nba-1" src="images/MVP_v2_2.png" alt="MVP Race" style="display:none" />
+            <img id="data-nba-3" src="images/DPOY_3.png" alt="DPOY 3" style="display:none" />
+            <div class="pr-stack" style="margin-top:20px;">
               <span class="chip">Python</span>
-              <span class="chip">Automatisation</span>
+              <span class="chip">Pandas</span>
+              <span class="chip">NBA API</span>
+              <span class="chip">Data Viz</span>
             </div>
           </div>
         </div>
@@ -1202,101 +455,16 @@
       </div>
     </div>
 
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section id="testimonials">
-    <div class="eyebrow reveal"><span class="eyebrow-n">04</span><span class="eyebrow-l"></span></div>
-    <h2 class="s-title reveal"><span data-i18n="testi.title.prefix">Ce qu'ils</span> <em data-i18n="testi.title.em">disent</em></h2>
-    <p class="s-lead reveal" data-i18n="testi.lead">Des retours de collaborateurs et clients avec qui j'ai eu le plaisir de travailler.</p>
-
-    <div class="testi-carousel-wrap reveal">
-      <div class="testi-track" id="testi-track">
-
-        <!-- Témoignage 1 -->
-        <div class="testi-card" onclick="openLightbox('testi-img-1', null, null)">
-          <img id="testi-img-1" src="images/temoignage_01.png" alt="Témoignage Céline Madec" />
-          <div class="testi-info">
-            <div class="testi-avatar">CM</div>
-            <div class="testi-text">
-              <div class="testi-name">Céline Madec</div>
-              <div class="testi-role">Responsable Organisation</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Témoignage 2 -->
-        <div class="testi-card" onclick="openLightbox('testi-img-2', null, null)">
-          <img id="testi-img-2" src="images/temoignage_02.png" alt="Témoignage Céline Madec" />
-          <div class="testi-info">
-            <div class="testi-avatar">CM</div>
-            <div class="testi-text">
-              <div class="testi-name">Céline Madec</div>
-              <div class="testi-role">Responsable Organisation</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Témoignage 3 -->
-        <div class="testi-card" onclick="openLightbox('testi-img-3', null, null)">
-          <img id="testi-img-3" src="images/temoignage_03.png" alt="Témoignage Brigitte Charton-Delorme" />
-          <div class="testi-info">
-            <div class="testi-avatar">BC</div>
-            <div class="testi-text">
-              <div class="testi-name">Brigitte Charton-Delorme</div>
-              <div class="testi-role">Directrice des activités déléguées</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Duplicates for infinite scroll -->
-        <div class="testi-card" onclick="openLightbox('testi-img-1d', null, null)">
-          <img id="testi-img-1d" src="images/temoignage_01.png" alt="Témoignage Céline Madec" />
-          <div class="testi-info">
-            <div class="testi-avatar">CM</div>
-            <div class="testi-text">
-              <div class="testi-name">Céline Madec</div>
-              <div class="testi-role">Responsable Organisation</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card" onclick="openLightbox('testi-img-2d', null, null)">
-          <img id="testi-img-2d" src="images/temoignage_02.png" alt="Témoignage Céline Madec" />
-          <div class="testi-info">
-            <div class="testi-avatar">CM</div>
-            <div class="testi-text">
-              <div class="testi-name">Céline Madec</div>
-              <div class="testi-role">Responsable Organisation</div>
-            </div>
-          </div>
-        </div>
-
-        <div class="testi-card" onclick="openLightbox('testi-img-3d', null, null)">
-          <img id="testi-img-3d" src="images/temoignage_03.png" alt="Témoignage Brigitte Charton-Delorme" />
-          <div class="testi-info">
-            <div class="testi-avatar">BC</div>
-            <div class="testi-text">
-              <div class="testi-name">Brigitte Charton-Delorme</div>
-              <div class="testi-role">Directrice des activités déléguées</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact">
     <div class="ct-inner">
       <div class="eyebrow reveal" style="justify-content:center">
-        <span class="eyebrow-n">05</span><span class="eyebrow-l"></span>
+        <span class="eyebrow-n">04</span><span class="eyebrow-l"></span>
       </div>
       <h2 class="ct-title reveal"><span data-i18n="contact.title.prefix">Travaillons</span><br><em data-i18n="contact.title.em">ensemble.</em></h2>
-      <p class="ct-sub reveal" data-i18n="contact.sub">
-        Vous avez un projet data, un besoin BI ou une mission freelance ?<br>Je suis disponible et réponds sous 24h.
-      </p>
+      <p class="ct-sub reveal" data-i18n="contact.sub">Vous avez un projet data, un besoin BI ou une mission freelance ?<br>Je suis disponible et réponds sous 24h.</p>
       <div class="ct-btns reveal">
         <a href="mailto:kevinzamord@gmail.com" class="btn btn-outline">✉️ &nbsp;kevinzamord@gmail.com</a>
         <a href="https://www.linkedin.com/in/kevin-zamord-710160139/" target="_blank" class="btn btn-outline">LinkedIn →</a>
@@ -1310,7 +478,7 @@
 
   <!-- LIGHTBOX -->
   <div class="lightbox-overlay" id="lightbox" onclick="closeLightbox(event)">
-    <div class="lightbox-img-wrap" id="lightbox-img-wrap">
+    <div class="lightbox-img-wrap">
       <img id="lightbox-img" src="" alt="" />
     </div>
     <div class="lightbox-actions">
@@ -1320,7 +488,7 @@
   </div>
 
   <script>
-    // ── SCROLL REVEAL ──────────────────────────────────────────
+    // REVEAL
     const els = document.querySelectorAll('.reveal');
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
@@ -1332,172 +500,7 @@
     }, { threshold: 0.1 });
     els.forEach(el => io.observe(el));
 
-    // ── TRANSLATIONS ───────────────────────────────────────────
-    const translations = {
-      fr: {
-        'nav.about':           'À propos',
-        'nav.skills':          'Compétences',
-        'nav.projects':        'Projets',
-        'nav.testimonials':    'Témoignages',
-        'nav.contact':         'Contact',
-        'hero.cv':             'Télécharger mon CV',
-        'hero.badge':          'Disponible pour missions freelance',
-        'hero.sub':            'Les entreprises m\'appellent pour améliorer leurs prises de décisions avec l\'aide de la data.',
-        'hero.cta1':           'Voir mes projets →',
-        'hero.cta2':           'Me contacter',
-        'hero.stat1':          'Ans d\'expérience',
-        'hero.stat2':          'Clients accompagnés',
-        'about.title.prefix':  'À propos',
-        'about.title.em':      'de moi',
-        'about.p1':            'Data Analyst expérimenté, j\'interviens dans les secteurs <strong>assurantiel, bancaire et sportif</strong> avec une approche résolument orientée métier.',
-        'about.p2':            'Je mobilise mes compétences techniques — <strong>SAS, Python, SQL, Power BI, …</strong> — pour collecter et préparer la donnée, concevoir des indicateurs à forte valeur ajoutée et livrer des tableaux de bord qui aident concrètement les équipes à prendre de meilleures décisions.',
-        'about.stat1':         'Années d\'expérience',
-        'about.stat2':         'Secteurs couverts',
-        'about.stat3':         'TJM',
-        'about.stat4':         'Outils maîtrisés',
-        'skills.title.prefix': 'Mes',
-        'skills.title.em':     'compétences',
-        'skills.lead':         'De la collecte brute à la décision éclairée, je couvre toute la chaîne de la donnée.',
-        'skills.s1.name':      'Data Collection',
-        'skills.s1.desc':      'Collecte et ingestion de données depuis des sources variées — APIs, bases de données, fichiers bruts.',
-        'skills.s2.name':      'Data Preparation',
-        'skills.s2.desc':      'Nettoyage, transformation et structuration des données pour garantir leur fiabilité avant toute analyse.',
-        'skills.s3.name':      'Data Analysis',
-        'skills.s3.desc':      'Analyse statistique et exploration des données pour identifier des tendances actionnables et appuyer la prise de décision métier.',
-        'skills.s4.name':      'Data Visualisation',
-        'skills.s4.desc':      'Industrialisation des processus reporting et conception de dashboards clairs et stratégiques pour les équipes métier.',
-        'projects.title.prefix':    'Projets',
-        'projects.title.em':        'récents',
-        'projects.lead':            'Des livrables concrets avec des résultats mesurables.',
-        'projects.sector.sport':    'Sport',
-        'projects.sector.insurance':'Assurance',
-        'projects.p_xsp.type':      'Machine Learning · Football',
-        'projects.p_xsp.name':      'Expected Set Piece (XSP)',
-        'projects.p_xsp.body':      'Modèle de machine learning permettant de déterminer la probabilité qu\'un coup franc direct se convertisse en but. Basé sur les données StatBomb, le modèle prend en compte la position, la distance, la configuration défensive et le nombre d\'attaquants pour générer un score XSP actionnable.',
-        'projects.p_penalty.type':  'Computer Vision · Football',
-        'projects.p_penalty.name':  'Penalty Kick Prediction',
-        'projects.p_penalty.body':  'Projet de computer vision analysant les tirs au but. Le modèle détecte les joueurs par leur forme et leur couleur de maillot, puis extrait des données biomécaniques (angle du genou) permettant de prédire la direction du tir avant que la frappe ait lieu.',
-        'projects.p_pacifica.type': 'Power BI · Assurance · Pacifica',
-        'projects.p_pacifica.name': 'Refonte du TDB Direction des Sinistres',
-        'projects.p_pacifica.body': 'Refonte complète du tableau de bord de la Direction des Sinistres. Ce projet a permis de répondre aux besoins métiers, d\'intégrer rapidement les évolutions projet, d\'offrir une meilleure flexibilité grâce à des filtres avancés et d\'accélérer la production du reporting.',
-        'projects.p_atypies.type':  'Data · Assurance · Malakoff Humanis',
-        'projects.p_atypies.name':  'Ciblage des Atypies — Détection de Fraude',
-        'projects.p_atypies.body':  'Solution permettant aux équipes métier de détecter plus rapidement et efficacement des atypies. En un clic, le processus compile plusieurs sources, nettoie les données, applique les critères de contrôle et restitue une synthèse des dossiers suspects avec les montants associés.',
-        'testi.title.prefix':       'Ce qu\'ils',
-        'testi.title.em':           'disent',
-        'testi.lead':               'Des retours de collaborateurs et clients avec qui j\'ai eu le plaisir de travailler.',
-        'contact.title.prefix':     'Travaillons',
-        'contact.title.em':         'ensemble.',
-        'contact.sub':              'Vous avez un projet data, un besoin BI ou une mission freelance ?<br>Je suis disponible et réponds sous 24h.',
-      },
-      en: {
-        'nav.about':           'About',
-        'nav.skills':          'Skills',
-        'nav.projects':        'Projects',
-        'nav.testimonials':    'Testimonials',
-        'nav.contact':         'Contact',
-        'hero.cv':             'Download my Resume',
-        'hero.badge':          'Available for freelance missions',
-        'hero.sub':            'Companies call me to improve their decision-making with the help of data.',
-        'hero.cta1':           'See my projects →',
-        'hero.cta2':           'Get in touch',
-        'hero.stat1':          'Years of experience',
-        'hero.stat2':          'Clients served',
-        'about.title.prefix':  'About',
-        'about.title.em':      'me',
-        'about.p1':            'Experienced Data Analyst, I work across the <strong>insurance, banking and sports</strong> sectors with a business-first approach.',
-        'about.p2':            'I leverage my technical skills — <strong>SAS, Python, SQL, Power BI, …</strong> — to collect and prepare data, design high-value indicators and deliver dashboards that genuinely help teams make better decisions.',
-        'about.stat1':         'Years of experience',
-        'about.stat2':         'Industries covered',
-        'about.stat3':         'Daily rate',
-        'about.stat4':         'Core tools mastered',
-        'skills.title.prefix': 'My',
-        'skills.title.em':     'skills',
-        'skills.lead':         'From raw data collection to informed decisions, I cover the full data chain.',
-        'skills.s1.name':      'Data Collection',
-        'skills.s1.desc':      'Data collection and ingestion from various sources — APIs, databases, raw files.',
-        'skills.s2.name':      'Data Preparation',
-        'skills.s2.desc':      'Cleaning, transforming and structuring data to ensure its reliability before any analysis.',
-        'skills.s3.name':      'Data Analysis',
-        'skills.s3.desc':      'Statistical analysis and data exploration to identify actionable trends and support business decision-making.',
-        'skills.s4.name':      'Data Visualisation',
-        'skills.s4.desc':      'Streamlining reporting processes and building clear, strategic dashboards for business teams.',
-        'projects.title.prefix':    'My',
-        'projects.title.em':        'Projects',
-        'projects.lead':            'Concrete deliverables with measurable results.',
-        'projects.sector.sport':    'Sports',
-        'projects.sector.insurance':'Insurance',
-        'projects.p_xsp.type':      'Machine Learning · Football',
-        'projects.p_xsp.name':      'Expected Set Piece (XSP)',
-        'projects.p_xsp.body':      'A machine learning model designed to predict the probability of a direct free kick resulting in a goal. Built on StatBomb data, the model factors in position, distance, defensive setup and number of attackers to generate an actionable XSP score.',
-        'projects.p_penalty.type':  'Computer Vision · Football',
-        'projects.p_penalty.name':  'Penalty Kick Prediction',
-        'projects.p_penalty.body':  'A computer vision project analysing penalty kicks. The model detects players by their body shape and jersey colour, then extracts biomechanical data (knee angle) to predict the direction of the shot before the kick is taken.',
-        'projects.p_pacifica.type': 'Power BI · Insurance · Pacifica',
-        'projects.p_pacifica.name': 'Claims Dashboard Overhaul',
-        'projects.p_pacifica.body': 'Full redesign of the Claims Directorate dashboard. The project addressed business needs, enabled rapid integration of project updates, improved flexibility through advanced filters and significantly accelerated reporting delivery.',
-        'projects.p_atypies.type':  'Data · Insurance · Malakoff Humanis',
-        'projects.p_atypies.name':  'Atypical Claims Targeting — Fraud Detection',
-        'projects.p_atypies.body':  'A solution enabling business teams to detect atypical claims faster and more effectively. With a single click, the process compiles multiple data sources, cleans data, applies control criteria and delivers a summary of suspicious files with associated amounts.',
-        'testi.title.prefix':       'What they',
-        'testi.title.em':           'say',
-        'testi.lead':               'Feedback from collaborators and clients I had the pleasure of working with.',
-        'contact.title.prefix':     "Let's work",
-        'contact.title.em':         'together.',
-        'contact.sub':              'Got a data project, a BI need or a freelance mission?<br>I\'m available and reply within 24h.',
-      }
-    };
-
-    // ── LANG SWITCH ────────────────────────────────────────────
-    let currentLang = 'fr';
-
-    function setLang(lang) {
-      currentLang = lang;
-      const t = translations[lang];
-
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (t[key] !== undefined) el.innerHTML = t[key];
-      });
-
-      document.documentElement.lang = lang;
-
-      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
-      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-
-      const cvBtn = document.getElementById('cv-btn');
-      if (cvBtn) {
-        cvBtn.href = lang === 'fr' ? 'CV/CV_KZ.pdf' : 'CV/Resume_KZ.pdf';
-      }
-
-      document.body.style.transition = 'opacity 0.15s ease';
-      document.body.style.opacity = '0.85';
-      setTimeout(() => { document.body.style.opacity = '1'; }, 150);
-    }
-
-    // ── SCROLL SPY ─────────────────────────────────────────────
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-
-    function updateNav() {
-      let current = '';
-      if (window.scrollY > window.innerHeight * 0.5) {
-        sections.forEach(s => {
-          const rect = s.getBoundingClientRect();
-          if (rect.top <= 120 && rect.bottom >= 120) {
-            current = s.id;
-          }
-        });
-      }
-      navLinks.forEach(a => {
-        a.classList.toggle('nav-active', current !== '' && a.getAttribute('href') === '#' + current);
-      });
-    }
-
-    window.addEventListener('scroll', updateNav, { passive: true });
-    updateNav();
-
-    // ── PROJECT TABS ───────────────────────────────────────────
+    // TABS
     function showTab(tab) {
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.proj-tab').forEach(b => b.classList.remove('active'));
@@ -1505,7 +508,7 @@
       document.querySelector('[data-i18n-tab="' + tab + '"]').classList.add('active');
     }
 
-    // ── LIGHTBOX ───────────────────────────────────────────────
+    // LIGHTBOX
     function openLightbox(imgId, url, label) {
       const src = document.getElementById(imgId).src;
       document.getElementById('lightbox-img').src = src;
@@ -1520,19 +523,117 @@
       document.getElementById('lightbox').classList.add('open');
       document.body.style.overflow = 'hidden';
     }
-
     function closeLightbox(e) {
       if (e.target === document.getElementById('lightbox')) closeLightboxBtn();
     }
-
     function closeLightboxBtn() {
       document.getElementById('lightbox').classList.remove('open');
       document.body.style.overflow = '';
     }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightboxBtn(); });
 
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeLightboxBtn();
-    });
+    // SCROLL SPY
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+    function updateNav() {
+      let current = '';
+      if (window.scrollY > window.innerHeight * 0.5) {
+        sections.forEach(s => {
+          const rect = s.getBoundingClientRect();
+          if (rect.top <= 120 && rect.bottom >= 120) current = s.id;
+        });
+      }
+      navLinks.forEach(a => {
+        a.classList.toggle('nav-active', current !== '' && a.getAttribute('href') === '#' + current);
+      });
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    // TRANSLATIONS
+    const translations = {
+      fr: {
+        'nav.about':'À propos','nav.skills':'Compétences','nav.projects':'Projets','nav.contact':'Contact',
+        'hero.badge':'Disponible pour missions freelance',
+        'hero.sub':'Les entreprises m\'appellent pour améliorer leurs prises de décisions avec l\'aide de la data.',
+        'hero.cta1':'Voir mes projets →','hero.cta2':'Me contacter','hero.cv':'Télécharger mon CV',
+        'hero.stat1':'Ans d\'expérience','hero.stat2':'Clients accompagnés',
+        'about.title.prefix':'À propos','about.title.em':'de moi',
+        'about.p1':'Data Analyst expérimenté, j\'interviens dans les secteurs <strong>assurantiel, bancaire et sportif</strong> avec une approche résolument orientée métier.',
+        'about.p2':'Je mobilise mes compétences techniques — <strong>SAS, Python, SQL, Power BI, …</strong> — pour collecter et préparer la donnée, concevoir des indicateurs à forte valeur ajoutée et livrer des tableaux de bord qui aident concrètement les équipes à prendre de meilleures décisions.',
+        'about.stat1':'Années d\'expérience','about.stat2':'Secteurs couverts','about.stat3':'TJM','about.stat4':'Outils maîtrisés',
+        'skills.title.prefix':'Mes','skills.title.em':'compétences',
+        'skills.lead':'De la collecte brute à la prise de décision, je couvre toute la chaîne de la donnée.',
+        'skills.s1.name':'Data Collection','skills.s1.desc':'Collecte et ingestion de données depuis des sources variées — APIs, bases de données, fichiers bruts.',
+        'skills.s2.name':'Data Preparation','skills.s2.desc':'Nettoyage, transformation et structuration des données pour garantir leur fiabilité avant toute analyse.',
+        'skills.s3.name':'Data Analysis','skills.s3.desc':'Analyse statistique et exploration des données pour identifier des tendances et appuyer la prise de décision métier.',
+        'skills.s4.name':'Data Visualisation','skills.s4.desc':'Industrialisation des processus reporting et conception de dashboards clairs et stratégiques pour les équipes métier.',
+        'projects.title.prefix':'Projets','projects.title.em':'récents',
+        'projects.lead':'Des livrables concrets avec des résultats mesurables.',
+        'projects.sector.football':'Football',
+        'projects.sector.basketball':'Basketball',
+        'projects.p_nba.type':'Data Analysis · NBA',
+        'projects.p_nba.name':'Comparatifs des Performances NBA',
+        'projects.p_nba.body':'Analyse comparative des joueurs NBA éligibles aux titres individuels de la saison — MVP, DPOY et autres récompenses. Le projet croise des métriques avancées (PER, Win Shares, VORP, Box Plus/Minus) pour objectiver les débats et apporter une lecture data-driven sur les candidats les plus méritants.',
+        'projects.see':'Voir le projet →','projects.coming':'Projet à venir',
+        'projects.p_xsp.type':'Machine Learning · Football','projects.p_xsp.name':'Expected Set Piece (XSP)',
+        'projects.p_xsp.body':'Modèle de machine learning permettant de déterminer la probabilité qu\'un coup franc direct se convertisse en but. Basé sur les données StatBomb, le modèle prend en compte la position, la distance, la configuration défensive et le nombre d\'attaquants pour générer un score XSP actionnable. Ce projet permet au staff technique d\'améliorer les patterns sur coups francs et aux football analysts d\'intégrer cette nouvelle métrique dans leur analyse.',
+        'projects.p_penalty.type':'Computer Vision · Football','projects.p_penalty.name':'Penalty Kick Prediction',
+        'projects.p_penalty.body':'Projet de computer vision analysant les tirs au but. Le modèle détecte les joueurs par leur forme et leur couleur de maillot, puis extrait des données biomécaniques (angle du genou) permettant de prédire la direction du tir avant que la frappe ait lieu.',
+        'contact.title.prefix':'Travaillons','contact.title.em':'ensemble.',
+        'contact.sub':'Vous avez un projet data, un besoin BI ou une mission freelance ?<br>Je suis disponible et réponds sous 24h.',
+      },
+      en: {
+        'nav.about':'About','nav.skills':'Skills','nav.projects':'Projects','nav.contact':'Contact',
+        'hero.badge':'Available for freelance missions',
+        'hero.sub':'Companies call me to improve their decision-making with the help of data.',
+        'hero.cta1':'See my projects →','hero.cta2':'Get in touch','hero.cv':'Download my Resume',
+        'hero.stat1':'Years of experience','hero.stat2':'Clients served',
+        'about.title.prefix':'About','about.title.em':'me',
+        'about.p1':'Experienced Data Analyst, I work across the <strong>insurance, banking and sports</strong> sectors with a business-first approach.',
+        'about.p2':'I leverage my technical skills — <strong>SAS, Python, SQL, Power BI, …</strong> — to collect and prepare data, design high-value indicators and deliver dashboards that genuinely help teams make better decisions.',
+        'about.stat1':'Years of experience','about.stat2':'Industries covered','about.stat3':'Daily rate','about.stat4':'Core tools mastered',
+        'skills.title.prefix':'My','skills.title.em':'skills',
+        'skills.lead':'From raw data collection to decision-making, I cover the full data chain.',
+        'skills.s1.name':'Data Collection','skills.s1.desc':'Data collection and ingestion from various sources — APIs, databases, raw files.',
+        'skills.s2.name':'Data Preparation','skills.s2.desc':'Cleaning, transforming and structuring data to ensure its reliability before any analysis.',
+        'skills.s3.name':'Data Analysis','skills.s3.desc':'Statistical analysis and data exploration to identify trends and support business decision-making.',
+        'skills.s4.name':'Data Visualisation','skills.s4.desc':'Streamlining reporting processes and building clear, strategic dashboards for business teams.',
+        'projects.title.prefix':'My','projects.title.em':'Projects',
+        'projects.lead':'Concrete deliverables with measurable results.',
+        'projects.sector.football':'Football',
+        'projects.sector.basketball':'Basketball',
+        'projects.p_nba.type':'Data Analysis · NBA',
+        'projects.p_nba.name':'Comparatifs des Performances NBA',
+        'projects.p_nba.body':'Analyse comparative des joueurs NBA éligibles aux titres individuels de la saison — MVP, DPOY et autres récompenses. Le projet croise des métriques avancées (PER, Win Shares, VORP, Box Plus/Minus) pour objectiver les débats et apporter une lecture data-driven sur les candidats les plus méritants.',
+        'projects.see':'View project →','projects.coming':'Coming soon',
+        'projects.p_xsp.type':'Machine Learning · Football','projects.p_xsp.name':'Expected Set Piece (XSP)',
+        'projects.p_xsp.body':'A machine learning model designed to predict the probability of a direct free kick resulting in a goal. Built on StatBomb data, the model factors in position, distance, defensive setup and number of attackers to generate an actionable XSP score. This project helps technical staff improve free kick patterns and gives football analysts a new metric to integrate into their decision-making.',
+        'projects.p_penalty.type':'Computer Vision · Football','projects.p_penalty.name':'Penalty Kick Prediction',
+        'projects.p_penalty.body':'A computer vision project analysing penalty kicks. The model detects players by their body shape and jersey colour, then extracts biomechanical data (knee angle) to predict the direction of the shot before the kick is taken.',
+        'contact.title.prefix':"Let's work",'contact.title.em':'together.',
+        'contact.sub':'Got a data project, a BI need or a freelance mission?<br>I\'m available and reply within 24h.',
+      }
+    };
+
+    let currentLang = 'fr';
+    function setLang(lang) {
+      currentLang = lang;
+      const t = translations[lang];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+      document.documentElement.lang = lang;
+      document.title = 'Kevin ZAMORD – Data Analyst';
+      document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+      const cvBtn = document.getElementById('cv-btn');
+      if (cvBtn) cvBtn.href = lang === 'fr' ? 'CV/CV_KZ.pdf' : 'CV/Resume_KZ.pdf';
+      document.body.style.transition = 'opacity 0.15s ease';
+      document.body.style.opacity = '0.85';
+      setTimeout(() => { document.body.style.opacity = '1'; }, 150);
+    }
   </script>
 
 </body>
