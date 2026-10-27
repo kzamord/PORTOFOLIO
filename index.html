@@ -114,7 +114,6 @@
     .proj-thumb{position:relative;overflow:hidden;height:200px;cursor:zoom-in;}
     .proj-thumb img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform 0.4s ease;}
     .pr-card:hover .proj-thumb img{transform:scale(1.03);}
-    .proj-thumb-link{display:none;}
     .proj-content{padding:28px 28px 32px;}
     .pr-type{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px;}
     .pr-dot{width:6px;height:6px;border-radius:50%;background:var(--accent2);flex-shrink:0;}
@@ -123,8 +122,88 @@
     .pr-stack{display:flex;flex-wrap:wrap;gap:6px;}
     .chip{font-size:11px;font-weight:500;padding:4px 12px;border-radius:6px;background:var(--bg3);color:var(--ink-mid);border:1px solid var(--border);}
 
+    /* GALLERY */
+    .gallery-strip{display:flex;gap:10px;margin-bottom:20px;}
+    .gallery-thumb{width:calc(33.333% - 7px);aspect-ratio:1/1;object-fit:contain;object-position:center;background:var(--bg3);border-radius:8px;cursor:zoom-in;border:2px solid var(--border);transition:border-color 0.2s,transform 0.2s;padding:4px;}
+    .gallery-thumb:hover{border-color:var(--accent);transform:translateY(-2px);}
+
+    /* ── LOGO CAROUSEL ─────────────────────────────── */
+    .clients-band{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:32px 0;overflow:hidden;position:relative;}
+    .clients-band::before,.clients-band::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none;}
+    .clients-band::before{left:0;background:linear-gradient(to right,var(--bg2),transparent);}
+    .clients-band::after{right:0;background:linear-gradient(to left,var(--bg2),transparent);}
+    .clients-track{display:flex;align-items:center;gap:64px;width:max-content;animation:scrollLogos 32s linear infinite;}
+    .clients-band:hover .clients-track{animation-play-state:paused;}
+    @keyframes scrollLogos{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+    .logo-item{display:flex;align-items:center;justify-content:center;flex-shrink:0;height:44px;opacity:0.55;transition:opacity 0.3s;filter:grayscale(1);}
+    .logo-item:hover{opacity:1;filter:grayscale(0);}
+    .logo-item img{height:100%;width:auto;max-width:140px;object-fit:contain;}
+
+    /* ── TESTIMONIALS CAROUSEL ─────────────────────── */
+    #testimonials{background:var(--bg);}
+
+    .testi-carousel-wrap{position:relative;overflow:hidden;margin-top:56px;}
+    .testi-carousel-wrap::before,.testi-carousel-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;}
+    .testi-carousel-wrap::before{left:0;background:linear-gradient(to right,var(--bg),transparent);}
+    .testi-carousel-wrap::after{right:0;background:linear-gradient(to left,var(--bg),transparent);}
+
+    .testi-track{display:flex;align-items:stretch;gap:24px;width:max-content;animation:scrollTestis 38s linear infinite;}
+    .testi-carousel-wrap:hover .testi-track{animation-play-state:paused;}
+    @keyframes scrollTestis{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+    .testi-card{
+      flex-shrink:0;
+      width:340px;
+      background:var(--bg2);
+      border:1px solid var(--border);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      cursor:zoom-in;
+      transition:transform 0.25s,box-shadow 0.25s;
+      display:flex;
+      flex-direction:column;
+    }
+    .testi-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+
+    /* screenshot fills card, height fixed so cards align */
+    .testi-thumb{
+      width:100%;
+      height:260px;
+      overflow:hidden;
+      background:var(--bg3);
+      flex-shrink:0;
+    }
+    .testi-thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      object-position:top;
+      display:block;
+    }
+
+    .testi-info{
+      padding:14px 18px;
+      border-top:1px solid var(--border);
+      display:flex;
+      align-items:center;
+      gap:12px;
+      background:var(--bg2);
+      flex:1;
+    }
+    .testi-avatar{
+      width:38px;height:38px;border-radius:50%;
+      background:linear-gradient(135deg,var(--accent),#7BB2FF);
+      color:#fff;font-size:12px;font-weight:700;
+      display:flex;align-items:center;justify-content:center;
+      flex-shrink:0;letter-spacing:0.5px;
+    }
+    .testi-text{display:flex;flex-direction:column;gap:3px;}
+    .testi-name{font-size:13px;font-weight:600;color:var(--ink);line-height:1.2;}
+    .testi-role{font-size:11px;color:var(--ink-soft);line-height:1.3;}
+
     /* CONTACT */
-    #contact{background:var(--bg);display:flex;align-items:center;justify-content:center;text-align:center;min-height:70vh;}
+    #contact{background:var(--bg2);display:flex;align-items:center;justify-content:center;text-align:center;min-height:70vh;}
     .ct-inner{max-width:680px;}
     .ct-title{font-family:'DM Serif Display',serif;font-size:clamp(44px,5vw,76px);letter-spacing:-2.5px;line-height:1.0;margin-bottom:20px;}
     .ct-title em{font-style:italic;color:var(--accent);}
@@ -140,18 +219,6 @@
     .reveal.visible{opacity:1;transform:none;}
     @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:none;}}
 
-    /* LOGO CAROUSEL */
-    .clients-band{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:32px 0;overflow:hidden;position:relative;}
-    .clients-band::before,.clients-band::after{content:'';position:absolute;top:0;bottom:0;width:120px;z-index:2;pointer-events:none;}
-    .clients-band::before{left:0;background:linear-gradient(to right,var(--bg2),transparent);}
-    .clients-band::after{right:0;background:linear-gradient(to left,var(--bg2),transparent);}
-    .clients-track{display:flex;align-items:center;gap:64px;width:max-content;animation:scrollLogos 28s linear infinite;}
-    .clients-band:hover .clients-track{animation-play-state:paused;}
-    @keyframes scrollLogos{from{transform:translateX(0);}to{transform:translateX(-33.333%);}}
-    .logo-item{display:flex;align-items:center;justify-content:center;flex-shrink:0;height:44px;opacity:0.55;transition:opacity 0.3s;filter:grayscale(1);}
-    .logo-item:hover{opacity:1;filter:grayscale(0);}
-    .logo-item img{height:100%;width:auto;max-width:140px;object-fit:contain;}
-
     /* LIGHTBOX */
     .lightbox-overlay{position:fixed;inset:0;z-index:1000;background:rgba(15,14,12,0.85);backdrop-filter:blur(6px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:20px;padding:24px;opacity:0;pointer-events:none;transition:opacity 0.25s ease;}
     .lightbox-overlay.open{opacity:1;pointer-events:all;}
@@ -163,28 +230,6 @@
     .lightbox-link:hover{opacity:0.85;}
     .lightbox-close{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,255,255,0.25);background:rgba(255,255,255,0.08);color:#fff;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s;}
     .lightbox-close:hover{background:rgba(255,255,255,0.18);}
-
-    .gallery-strip {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-    .gallery-thumb {
-      width: calc(33.333% - 7px);
-      aspect-ratio: 1 / 1;
-      object-fit: contain;
-      object-position: center;
-      background: var(--bg3);
-      border-radius: 8px;
-      cursor: zoom-in;
-      border: 2px solid var(--border);
-      transition: border-color 0.2s, transform 0.2s;
-      padding: 4px;
-    }
-    .gallery-thumb:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
 
     /* RESPONSIVE */
     @media(max-width:960px){
@@ -200,6 +245,8 @@
     @media(max-width:600px){
       .skills-grid{grid-template-columns:1fr;}
       .nav-links{display:none;}
+      .testi-card{width:280px;}
+      .testi-thumb{height:200px;}
     }
   </style>
 </head>
@@ -208,14 +255,15 @@
   <nav>
     <div class="nav-logo">Kevin ZAMORD</div>
     <ul class="nav-links">
-      <li><a href="#about" data-i18n="nav.about">À propos</a></li>
-      <li><a href="#skills" data-i18n="nav.skills">Compétences</a></li>
-      <li><a href="#projects" data-i18n="nav.projects">Projets</a></li>
+      <li><a href="#about"        data-i18n="nav.about">À propos</a></li>
+      <li><a href="#skills"       data-i18n="nav.skills">Compétences</a></li>
+      <li><a href="#testimonials" data-i18n="nav.testimonials">Témoignages</a></li>
+      <li><a href="#projects"     data-i18n="nav.projects">Projets</a></li>
       <li><a href="#contact" class="nav-cta" data-i18n="nav.contact">Contact</a></li>
     </ul>
     <div class="lang-switch">
       <button class="lang-btn active" id="btn-fr" onclick="setLang('fr')">FR</button>
-      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn"        id="btn-en" onclick="setLang('en')">EN</button>
     </div>
   </nav>
 
@@ -231,7 +279,7 @@
       <p class="hero-sub" data-i18n="hero.sub">Les entreprises m'appellent pour améliorer leurs prises de décisions avec l'aide de la data.</p>
       <div class="hero-actions">
         <a href="#projects" class="btn btn-dark" data-i18n="hero.cta1">Voir mes projets →</a>
-        <a href="#contact" class="btn btn-outline" data-i18n="hero.cta2">Me contacter</a>
+        <a href="#contact"  class="btn btn-outline" data-i18n="hero.cta2">Me contacter</a>
         <a href="CV/CV_KZ.pdf" download id="cv-btn" class="btn btn-cv" data-i18n="hero.cv">
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Télécharger mon CV
@@ -239,7 +287,7 @@
       </div>
       <div class="hero-stats">
         <div>
-          <div class="hstat-num">7<span class="c">+</span></div>
+          <div class="hstat-num">8<span class="c">+</span></div>
           <div class="hstat-label" data-i18n="hero.stat1">Ans d'expérience</div>
         </div>
         <div>
@@ -255,30 +303,26 @@
     </div>
   </section>
 
-  <!-- LOGO CAROUSEL -->
+  <!-- LOGO CAROUSEL — 8 logos × 2 pour le défilement infini -->
   <div class="clients-band">
     <div class="clients-track">
-      <div class="logo-item"><img src="images/logo_allianz.svg" alt="Allianz" /></div>
-      <div class="logo-item"><img src="images/logo_bnp.svg" alt="BNP Paribas" /></div>
-      <div class="logo-item"><img src="images/logo_pacifica.svg" alt="CA Assurances" /></div>
-      <div class="logo-item"><img src="images/logo_MMH.svg" alt="MMH" /></div>
-      <div class="logo-item"><img src="images/logo_StatTheGame.png" alt="Stat The Game" /></div>
-      <div class="logo-item"><img src="images/logo_ufirst.png" alt="Ufirst Advisory" /></div>
-      <div class="logo-item"><img src="images/logo_finegan.png" alt="Finegan" /></div>
-      <div class="logo-item"><img src="images/logo_allianz.svg" alt="Allianz" /></div>
-      <div class="logo-item"><img src="images/logo_bnp.svg" alt="BNP Paribas" /></div>
-      <div class="logo-item"><img src="images/logo_pacifica.svg" alt="CA Assurances" /></div>
-      <div class="logo-item"><img src="images/logo_MMH.svg" alt="MMH" /></div>
-      <div class="logo-item"><img src="images/logo_StatTheGame.png" alt="Stat The Game" /></div>
-      <div class="logo-item"><img src="images/logo_ufirst.png" alt="Ufirst Advisory" /></div>
-      <div class="logo-item"><img src="images/logo_finegan.png" alt="Finegan" /></div>
-      <div class="logo-item"><img src="images/logo_allianz.svg" alt="Allianz" /></div>
-      <div class="logo-item"><img src="images/logo_bnp.svg" alt="BNP Paribas" /></div>
-      <div class="logo-item"><img src="images/logo_pacifica.svg" alt="CA Assurances" /></div>
-      <div class="logo-item"><img src="images/logo_MMH.svg" alt="MMH" /></div>
-      <div class="logo-item"><img src="images/logo_StatTheGame.png" alt="Stat The Game" /></div>
-      <div class="logo-item"><img src="images/logo_ufirst.png" alt="Ufirst Advisory" /></div>
-      <div class="logo-item"><img src="images/logo_finegan.png" alt="Finegan" /></div>
+      <div class="logo-item"><img src="images/logo_allianz.svg"      alt="Allianz" /></div>
+      <div class="logo-item"><img src="images/logo_bnp.svg"          alt="BNP Paribas" /></div>
+      <div class="logo-item"><img src="images/logo_pacifica.svg"     alt="CA Assurances" /></div>
+      <div class="logo-item"><img src="images/logo_MMH.svg"          alt="Malakoff Humanis" /></div>
+      <div class="logo-item"><img src="images/logo_maif.png"         alt="MAIF" /></div>
+      <div class="logo-item"><img src="images/logo_StatTheGame.png"  alt="Stat The Game" /></div>
+      <div class="logo-item"><img src="images/logo_ufirst.png"       alt="Ufirst Advisory" /></div>
+      <div class="logo-item"><img src="images/logo_finegan.png"      alt="Finegan" /></div>
+      <!-- duplicate pour boucle infinie -->
+      <div class="logo-item"><img src="images/logo_allianz.svg"      alt="Allianz" /></div>
+      <div class="logo-item"><img src="images/logo_bnp.svg"          alt="BNP Paribas" /></div>
+      <div class="logo-item"><img src="images/logo_pacifica.svg"     alt="CA Assurances" /></div>
+      <div class="logo-item"><img src="images/logo_MMH.svg"          alt="Malakoff Humanis" /></div>
+      <div class="logo-item"><img src="images/logo_maif.png"         alt="MAIF" /></div>
+      <div class="logo-item"><img src="images/logo_StatTheGame.png"  alt="Stat The Game" /></div>
+      <div class="logo-item"><img src="images/logo_ufirst.png"       alt="Ufirst Advisory" /></div>
+      <div class="logo-item"><img src="images/logo_finegan.png"      alt="Finegan" /></div>
     </div>
   </div>
 
@@ -293,7 +337,7 @@
       </div>
       <div class="stats-grid reveal">
         <div class="stat-tile">
-          <div class="stat-num">7<span class="c">+</span></div>
+          <div class="stat-num">8<span class="c">+</span></div>
           <div class="stat-label" data-i18n="about.stat1">Années d'expérience</div>
         </div>
         <div class="stat-tile">
@@ -322,45 +366,79 @@
         <div class="sk-icon">🔌</div>
         <div class="sk-name" data-i18n="skills.s1.name">Data Collection</div>
         <p class="sk-desc" data-i18n="skills.s1.desc">Collecte et ingestion de données depuis des sources variées — APIs, bases de données, fichiers bruts.</p>
-        <div class="pills">
-          <span class="pill">Python</span>
-          <span class="pill">SAS</span>
-          <span class="pill">R</span>
-          <span class="pill">Dataiku</span>
-        </div>
+        <div class="pills"><span class="pill">Python</span><span class="pill">SAS</span><span class="pill">R</span><span class="pill">Dataiku</span></div>
       </div>
       <div class="sk-tile reveal">
         <div class="sk-icon">🧹</div>
         <div class="sk-name" data-i18n="skills.s2.name">Data Preparation</div>
         <p class="sk-desc" data-i18n="skills.s2.desc">Nettoyage, transformation et structuration des données pour garantir leur fiabilité avant toute analyse.</p>
-        <div class="pills">
-          <span class="pill">SAS</span>
-          <span class="pill">SQL</span>
-          <span class="pill">Python</span>
-          <span class="pill">R</span>
-          <span class="pill">Dataiku</span>
-        </div>
+        <div class="pills"><span class="pill">SAS</span><span class="pill">SQL</span><span class="pill">Python</span><span class="pill">R</span><span class="pill">Dataiku</span></div>
       </div>
       <div class="sk-tile reveal">
         <div class="sk-icon">🔍</div>
         <div class="sk-name" data-i18n="skills.s3.name">Data Analysis</div>
         <p class="sk-desc" data-i18n="skills.s3.desc">Analyse statistique et exploration des données pour identifier des tendances et appuyer la prise de décision métier.</p>
-        <div class="pills">
-          <span class="pill">SAS</span>
-          <span class="pill">Python</span>
-          <span class="pill">R</span>
-          <span class="pill">Dataiku</span>
-        </div>
+        <div class="pills"><span class="pill">SAS</span><span class="pill">Python</span><span class="pill">R</span><span class="pill">Dataiku</span></div>
       </div>
       <div class="sk-tile reveal">
         <div class="sk-icon">📊</div>
         <div class="sk-name" data-i18n="skills.s4.name">Data Visualisation</div>
         <p class="sk-desc" data-i18n="skills.s4.desc">Industrialisation des processus reporting et conception de dashboards clairs et stratégiques pour les équipes métier.</p>
-        <div class="pills">
-          <span class="pill">Power BI</span>
-          <span class="pill">DAX</span>
-          <span class="pill">Tableau</span>
-          <span class="pill">Metrica</span>
+        <div class="pills"><span class="pill">Power BI</span><span class="pill">DAX</span><span class="pill">Tableau</span><span class="pill">Metrica</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="eyebrow reveal"><span class="eyebrow-n">03</span><span class="eyebrow-l"></span></div>
+    <h2 class="s-title reveal"><span data-i18n="testi.title.prefix">Ce qu'ils</span> <em data-i18n="testi.title.em">disent</em></h2>
+    <p class="s-lead reveal" data-i18n="testi.lead">Des retours de collaborateurs et clients avec qui j'ai eu le plaisir de travailler.</p>
+
+    <div class="testi-carousel-wrap reveal">
+      <div class="testi-track">
+        <div class="testi-card" onclick="openLightbox('t-img-1',null,null)">
+          <div class="testi-thumb"><img id="t-img-1" src="images/temoignage_01.png" alt="Témoignage Céline Madec" loading="lazy" /></div>
+          <div class="testi-info">
+            <div class="testi-avatar">CM</div>
+            <div class="testi-text"><div class="testi-name">Céline Madec</div><div class="testi-role">Responsable Organisation</div></div>
+          </div>
+        </div>
+        <div class="testi-card" onclick="openLightbox('t-img-2',null,null)">
+          <div class="testi-thumb"><img id="t-img-2" src="images/temoignage_02.png" alt="Témoignage Céline Madec" loading="lazy" /></div>
+          <div class="testi-info">
+            <div class="testi-avatar">CM</div>
+            <div class="testi-text"><div class="testi-name">Céline Madec</div><div class="testi-role">Responsable Organisation</div></div>
+          </div>
+        </div>
+        <div class="testi-card" onclick="openLightbox('t-img-3',null,null)">
+          <div class="testi-thumb"><img id="t-img-3" src="images/temoignage_03.png" alt="Témoignage Brigitte Charton-Delorme" loading="lazy" /></div>
+          <div class="testi-info">
+            <div class="testi-avatar">BC</div>
+            <div class="testi-text"><div class="testi-name">Brigitte Charton-Delorme</div><div class="testi-role">Directrice des activités déléguées</div></div>
+          </div>
+        </div>
+        <!-- duplicates pour boucle infinie -->
+        <div class="testi-card" onclick="openLightbox('t-img-1',null,null)">
+          <div class="testi-thumb"><img src="images/temoignage_01.png" alt="Témoignage Céline Madec" loading="lazy" /></div>
+          <div class="testi-info">
+            <div class="testi-avatar">CM</div>
+            <div class="testi-text"><div class="testi-name">Céline Madec</div><div class="testi-role">Responsable Organisation</div></div>
+          </div>
+        </div>
+        <div class="testi-card" onclick="openLightbox('t-img-2',null,null)">
+          <div class="testi-thumb"><img src="images/temoignage_02.png" alt="Témoignage Céline Madec" loading="lazy" /></div>
+          <div class="testi-info">
+            <div class="testi-avatar">CM</div>
+            <div class="testi-text"><div class="testi-name">Céline Madec</div><div class="testi-role">Responsable Organisation</div></div>
+          </div>
+        </div>
+        <div class="testi-card" onclick="openLightbox('t-img-3',null,null)">
+          <div class="testi-thumb"><img src="images/temoignage_03.png" alt="Témoignage Brigitte Charton-Delorme" loading="lazy" /></div>
+          <div class="testi-info">
+            <div class="testi-avatar">BC</div>
+            <div class="testi-text"><div class="testi-name">Brigitte Charton-Delorme</div><div class="testi-role">Directrice des activités déléguées</div></div>
+          </div>
         </div>
       </div>
     </div>
@@ -368,7 +446,7 @@
 
   <!-- PROJECTS -->
   <section id="projects">
-    <div class="eyebrow reveal"><span class="eyebrow-n">03</span><span class="eyebrow-l"></span></div>
+    <div class="eyebrow reveal"><span class="eyebrow-n">04</span><span class="eyebrow-l"></span></div>
     <h2 class="s-title reveal"><span data-i18n="projects.title.prefix">Projets</span> <em data-i18n="projects.title.em">récents</em></h2>
     <p class="s-lead reveal" data-i18n="projects.lead">Des livrables concrets avec des résultats mesurables.</p>
 
@@ -383,52 +461,39 @@
       </button>
     </div>
 
+    <!-- FOOTBALL -->
     <div class="tab-panel active" id="tab-football">
       <div class="proj-grid">
-
         <div class="pr-card proj-has-img">
-          <div class="proj-thumb" onclick="openLightbox('data-xsp', 'https://xsp-optimiser.onrender.com/', 'Voir l\'application →')">
+          <div class="proj-thumb" onclick="openLightbox('data-xsp','https://xsp-optimiser.onrender.com/','Voir l\'application →')">
             <img id="data-xsp" src="images/Project_xsp.jpg" alt="XSP Optimiser dashboard" />
           </div>
           <div class="proj-content">
             <div class="pr-type"><span class="pr-dot"></span><span data-i18n="projects.p_xsp.type">Machine Learning · Football</span></div>
             <h3 class="pr-name" data-i18n="projects.p_xsp.name">Expected Set Piece (XSP)</h3>
             <p class="pr-body" data-i18n="projects.p_xsp.body">Modèle de machine learning permettant de déterminer la probabilité qu'un coup franc direct se convertisse en but. Basé sur les données StatBomb, le modèle prend en compte la position, la distance, la configuration défensive et le nombre d'attaquants pour générer un score XSP actionnable. Ce projet permet au staff technique d'améliorer les patterns sur coups francs et aux football analysts d'intégrer cette nouvelle métrique dans leur analyse.</p>
-            <div class="pr-stack">
-              <span class="chip">Python</span>
-              <span class="chip">Machine Learning</span>
-              <span class="chip">StatBomb</span>
-              <span class="chip">Streamlit</span>
-            </div>
+            <div class="pr-stack"><span class="chip">Python</span><span class="chip">Machine Learning</span><span class="chip">StatBomb</span><span class="chip">Streamlit</span></div>
           </div>
         </div>
-
         <div class="pr-card proj-has-img">
-          <div class="proj-thumb" onclick="openLightbox('data-penalty', 'https://github.com/kzamord/penalty_kick_prediction', 'Voir sur GitHub →')">
+          <div class="proj-thumb" onclick="openLightbox('data-penalty','https://github.com/kzamord/penalty_kick_prediction','Voir sur GitHub →')">
             <img id="data-penalty" src="images/Project_penalty_kick.jpg" alt="Penalty Kick Prediction" />
           </div>
           <div class="proj-content">
             <div class="pr-type"><span class="pr-dot"></span><span data-i18n="projects.p_penalty.type">Computer Vision · Football</span></div>
             <h3 class="pr-name" data-i18n="projects.p_penalty.name">Penalty Kick Prediction</h3>
             <p class="pr-body" data-i18n="projects.p_penalty.body">Projet de computer vision analysant les tirs au but. Le modèle détecte les joueurs par leur forme et leur couleur de maillot, puis extrait des données biomécaniques (angle du genou) permettant de prédire la direction du tir avant que la frappe ait lieu.</p>
-            <div class="pr-stack">
-              <span class="chip">Python</span>
-              <span class="chip">Computer Vision</span>
-              <span class="chip">OpenCV</span>
-              <span class="chip">Deep Learning</span>
-            </div>
+            <div class="pr-stack"><span class="chip">Python</span><span class="chip">Computer Vision</span><span class="chip">OpenCV</span><span class="chip">Deep Learning</span></div>
           </div>
         </div>
-
       </div>
     </div>
 
-    <!-- BASKETBALL PANEL -->
+    <!-- BASKETBALL -->
     <div class="tab-panel" id="tab-basketball">
       <div class="proj-grid" style="grid-template-columns:1fr;">
-
         <div class="pr-card proj-has-img">
-          <div class="proj-thumb" style="height:280px;" onclick="openLightbox('data-nba-2', null, null)">
+          <div class="proj-thumb" style="height:280px;" onclick="openLightbox('data-nba-2',null,null)">
             <img id="data-nba-2" src="images/DPOY_2.png" alt="DPOY Radar Chart" style="object-position:center;" />
           </div>
           <div class="proj-content">
@@ -437,21 +502,15 @@
             <p class="pr-body" data-i18n="projects.p_nba.body">Analyse comparative des joueurs NBA éligibles aux titres individuels de la saison — MVP, DPOY et autres récompenses. Le projet croise des métriques avancées (PER, Win Shares, VORP, Box Plus/Minus) pour objectiver les débats et apporter une lecture data-driven sur les candidats les plus méritants.</p>
             <p style="font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px;" data-i18n="projects.gallery">Aperçus</p>
             <div class="gallery-strip">
-              <img class="gallery-thumb" src="images/MVP_v2_2.png" alt="MVP Race" onclick="openLightbox('data-nba-1', null, null)" />
-              <img class="gallery-thumb" src="images/DPOY_2.png"   alt="DPOY Race" onclick="openLightbox('data-nba-2', null, null)" />
-              <img class="gallery-thumb" src="images/DPOY_3.png"   alt="DPOY Detail" onclick="openLightbox('data-nba-3', null, null)" />
+              <img class="gallery-thumb" src="images/MVP_v2_2.png" alt="MVP Race"    onclick="openLightbox('data-nba-1',null,null)" />
+              <img class="gallery-thumb" src="images/DPOY_2.png"   alt="DPOY Race"   onclick="openLightbox('data-nba-2',null,null)" />
+              <img class="gallery-thumb" src="images/DPOY_3.png"   alt="DPOY Detail" onclick="openLightbox('data-nba-3',null,null)" />
             </div>
-            <img id="data-nba-1" src="images/MVP_v2_2.png" alt="MVP Race" style="display:none" />
-            <img id="data-nba-3" src="images/DPOY_3.png" alt="DPOY 3" style="display:none" />
-            <div class="pr-stack" style="margin-top:20px;">
-              <span class="chip">Python</span>
-              <span class="chip">Pandas</span>
-              <span class="chip">NBA API</span>
-              <span class="chip">Data Viz</span>
-            </div>
+            <img id="data-nba-1" src="images/MVP_v2_2.png" alt="MVP Race"  style="display:none" />
+            <img id="data-nba-3" src="images/DPOY_3.png"   alt="DPOY 3"   style="display:none" />
+            <div class="pr-stack" style="margin-top:20px;"><span class="chip">Python</span><span class="chip">Pandas</span><span class="chip">NBA API</span><span class="chip">Data Viz</span></div>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -461,7 +520,8 @@
   <section id="contact">
     <div class="ct-inner">
       <div class="eyebrow reveal" style="justify-content:center">
-        <span class="eyebrow-n">04</span><span class="eyebrow-l"></span>
+        <span class="eyebrow-n">05</span><span class="eyebrow-l"></span>
+        <!-- contact 05 ok -->
       </div>
       <h2 class="ct-title reveal"><span data-i18n="contact.title.prefix">Travaillons</span><br><em data-i18n="contact.title.em">ensemble.</em></h2>
       <p class="ct-sub reveal" data-i18n="contact.sub">Vous avez un projet data, un besoin BI ou une mission freelance ?<br>Je suis disponible et réponds sous 24h.</p>
@@ -488,8 +548,7 @@
   </div>
 
   <script>
-    // REVEAL
-    const els = document.querySelectorAll('.reveal');
+    // ── SCROLL REVEAL ──────────────────────────────────────────
     const io = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
         if (e.isIntersecting) {
@@ -498,9 +557,9 @@
         }
       });
     }, { threshold: 0.1 });
-    els.forEach(el => io.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    // TABS
+    // ── PROJECT TABS ───────────────────────────────────────────
     function showTab(tab) {
       document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
       document.querySelectorAll('.proj-tab').forEach(b => b.classList.remove('active'));
@@ -508,7 +567,7 @@
       document.querySelector('[data-i18n-tab="' + tab + '"]').classList.add('active');
     }
 
-    // LIGHTBOX
+    // ── LIGHTBOX ───────────────────────────────────────────────
     function openLightbox(imgId, url, label) {
       const src = document.getElementById(imgId).src;
       document.getElementById('lightbox-img').src = src;
@@ -532,7 +591,7 @@
     }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightboxBtn(); });
 
-    // SCROLL SPY
+    // ── SCROLL SPY ─────────────────────────────────────────────
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
     function updateNav() {
@@ -550,10 +609,11 @@
     window.addEventListener('scroll', updateNav, { passive: true });
     updateNav();
 
-    // TRANSLATIONS
+    // ── TRANSLATIONS ───────────────────────────────────────────
     const translations = {
       fr: {
-        'nav.about':'À propos','nav.skills':'Compétences','nav.projects':'Projets','nav.contact':'Contact',
+        'nav.about':'À propos','nav.skills':'Compétences','nav.projects':'Projets',
+        'nav.testimonials':'Témoignages','nav.contact':'Contact',
         'hero.badge':'Disponible pour missions freelance',
         'hero.sub':'Les entreprises m\'appellent pour améliorer leurs prises de décisions avec l\'aide de la data.',
         'hero.cta1':'Voir mes projets →','hero.cta2':'Me contacter','hero.cv':'Télécharger mon CV',
@@ -570,21 +630,30 @@
         'skills.s4.name':'Data Visualisation','skills.s4.desc':'Industrialisation des processus reporting et conception de dashboards clairs et stratégiques pour les équipes métier.',
         'projects.title.prefix':'Projets','projects.title.em':'récents',
         'projects.lead':'Des livrables concrets avec des résultats mesurables.',
+        'projects.sector.insurance':'Assurance',
         'projects.sector.football':'Football',
         'projects.sector.basketball':'Basketball',
-        'projects.p_nba.type':'Data Analysis · NBA',
-        'projects.p_nba.name':'Comparatifs des Performances NBA',
-        'projects.p_nba.body':'Analyse comparative des joueurs NBA éligibles aux titres individuels de la saison — MVP, DPOY et autres récompenses. Le projet croise des métriques avancées (PER, Win Shares, VORP, Box Plus/Minus) pour objectiver les débats et apporter une lecture data-driven sur les candidats les plus méritants.',
-        'projects.see':'Voir le projet →','projects.coming':'Projet à venir',
+        'projects.p_pacifica.type':'Power BI · Assurance · Pacifica',
+        'projects.p_pacifica.name':'Refonte du TDB Direction des Sinistres',
+        'projects.p_pacifica.body':'Refonte complète du tableau de bord de la Direction des Sinistres. Ce projet a permis de répondre aux besoins métiers, d\'intégrer rapidement les évolutions projet, d\'offrir une meilleure flexibilité grâce à des filtres avancés et d\'accélérer la production du reporting.',
+        'projects.p_atypies.type':'Data · Assurance · Malakoff Humanis',
+        'projects.p_atypies.name':'Ciblage des Atypies — Détection de Fraude',
+        'projects.p_atypies.body':'Solution permettant aux équipes métier de détecter plus rapidement et efficacement des atypies. En un clic, le processus compile plusieurs sources, nettoie les données, applique les critères de contrôle et restitue une synthèse des dossiers suspects avec les montants associés.',
         'projects.p_xsp.type':'Machine Learning · Football','projects.p_xsp.name':'Expected Set Piece (XSP)',
         'projects.p_xsp.body':'Modèle de machine learning permettant de déterminer la probabilité qu\'un coup franc direct se convertisse en but. Basé sur les données StatBomb, le modèle prend en compte la position, la distance, la configuration défensive et le nombre d\'attaquants pour générer un score XSP actionnable. Ce projet permet au staff technique d\'améliorer les patterns sur coups francs et aux football analysts d\'intégrer cette nouvelle métrique dans leur analyse.',
         'projects.p_penalty.type':'Computer Vision · Football','projects.p_penalty.name':'Penalty Kick Prediction',
         'projects.p_penalty.body':'Projet de computer vision analysant les tirs au but. Le modèle détecte les joueurs par leur forme et leur couleur de maillot, puis extrait des données biomécaniques (angle du genou) permettant de prédire la direction du tir avant que la frappe ait lieu.',
+        'projects.p_nba.type':'Data Analysis · NBA','projects.p_nba.name':'Comparatifs des Performances NBA',
+        'projects.p_nba.body':'Analyse comparative des joueurs NBA éligibles aux titres individuels de la saison — MVP, DPOY et autres récompenses. Le projet croise des métriques avancées (PER, Win Shares, VORP, Box Plus/Minus) pour objectiver les débats et apporter une lecture data-driven sur les candidats les plus méritants.',
+        'projects.gallery':'Aperçus',
+        'testi.title.prefix':'Ce qu\'ils','testi.title.em':'disent',
+        'testi.lead':'Des retours de collaborateurs et clients avec qui j\'ai eu le plaisir de travailler.',
         'contact.title.prefix':'Travaillons','contact.title.em':'ensemble.',
         'contact.sub':'Vous avez un projet data, un besoin BI ou une mission freelance ?<br>Je suis disponible et réponds sous 24h.',
       },
       en: {
-        'nav.about':'About','nav.skills':'Skills','nav.projects':'Projects','nav.contact':'Contact',
+        'nav.about':'About','nav.skills':'Skills','nav.projects':'Projects',
+        'nav.testimonials':'Testimonials','nav.contact':'Contact',
         'hero.badge':'Available for freelance missions',
         'hero.sub':'Companies call me to improve their decision-making with the help of data.',
         'hero.cta1':'See my projects →','hero.cta2':'Get in touch','hero.cv':'Download my Resume',
@@ -601,16 +670,24 @@
         'skills.s4.name':'Data Visualisation','skills.s4.desc':'Streamlining reporting processes and building clear, strategic dashboards for business teams.',
         'projects.title.prefix':'My','projects.title.em':'Projects',
         'projects.lead':'Concrete deliverables with measurable results.',
+        'projects.sector.insurance':'Insurance',
         'projects.sector.football':'Football',
         'projects.sector.basketball':'Basketball',
-        'projects.p_nba.type':'Data Analysis · NBA',
-        'projects.p_nba.name':'Comparatifs des Performances NBA',
-        'projects.p_nba.body':'Analyse comparative des joueurs NBA éligibles aux titres individuels de la saison — MVP, DPOY et autres récompenses. Le projet croise des métriques avancées (PER, Win Shares, VORP, Box Plus/Minus) pour objectiver les débats et apporter une lecture data-driven sur les candidats les plus méritants.',
-        'projects.see':'View project →','projects.coming':'Coming soon',
+        'projects.p_pacifica.type':'Power BI · Insurance · Pacifica',
+        'projects.p_pacifica.name':'Claims Dashboard Overhaul',
+        'projects.p_pacifica.body':'Full redesign of the Claims Directorate dashboard. The project addressed business needs, enabled rapid integration of project updates, improved flexibility through advanced filters and significantly accelerated reporting delivery.',
+        'projects.p_atypies.type':'Data · Insurance · Malakoff Humanis',
+        'projects.p_atypies.name':'Atypical Claims Targeting — Fraud Detection',
+        'projects.p_atypies.body':'A solution enabling business teams to detect atypical claims faster and more effectively. With a single click, the process compiles multiple data sources, cleans data, applies control criteria and delivers a summary of suspicious files with associated amounts.',
         'projects.p_xsp.type':'Machine Learning · Football','projects.p_xsp.name':'Expected Set Piece (XSP)',
         'projects.p_xsp.body':'A machine learning model designed to predict the probability of a direct free kick resulting in a goal. Built on StatBomb data, the model factors in position, distance, defensive setup and number of attackers to generate an actionable XSP score. This project helps technical staff improve free kick patterns and gives football analysts a new metric to integrate into their decision-making.',
         'projects.p_penalty.type':'Computer Vision · Football','projects.p_penalty.name':'Penalty Kick Prediction',
         'projects.p_penalty.body':'A computer vision project analysing penalty kicks. The model detects players by their body shape and jersey colour, then extracts biomechanical data (knee angle) to predict the direction of the shot before the kick is taken.',
+        'projects.p_nba.type':'Data Analysis · NBA','projects.p_nba.name':'NBA Performance Comparisons',
+        'projects.p_nba.body':'Comparative analysis of NBA players eligible for individual season awards — MVP, DPOY and others. The project cross-references advanced metrics (PER, Win Shares, VORP, Box Plus/Minus) to bring objectivity to debates and deliver a data-driven perspective on the most deserving candidates.',
+        'projects.gallery':'Gallery',
+        'testi.title.prefix':'What they','testi.title.em':'say',
+        'testi.lead':'Feedback from collaborators and clients I had the pleasure of working with.',
         'contact.title.prefix':"Let's work",'contact.title.em':'together.',
         'contact.sub':'Got a data project, a BI need or a freelance mission?<br>I\'m available and reply within 24h.',
       }
@@ -625,7 +702,6 @@
         if (t[key] !== undefined) el.innerHTML = t[key];
       });
       document.documentElement.lang = lang;
-      document.title = 'Kevin ZAMORD – Data Analyst';
       document.getElementById('btn-fr').classList.toggle('active', lang === 'fr');
       document.getElementById('btn-en').classList.toggle('active', lang === 'en');
       const cvBtn = document.getElementById('cv-btn');
